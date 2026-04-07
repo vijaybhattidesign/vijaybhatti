@@ -562,6 +562,13 @@ window.addEventListener("scroll",()=>n.classList.toggle("sc",window.scrollY>40))
 <script>
 (function(){var t=sessionStorage.getItem('vbt')||'light';if(t==='dark')document.documentElement.setAttribute('data-theme','dark');})();
 function toggleTheme(){var d=document.documentElement.getAttribute('data-theme')==='dark';if(d){document.documentElement.removeAttribute('data-theme');sessionStorage.setItem('vbt','light');}else{document.documentElement.setAttribute('data-theme','dark');sessionStorage.setItem('vbt','dark');}}
+/* Keep resume profile photo in sync with About page */
+(function(){
+  var resumePhoto=document.querySelector('.r-photo img');
+  if(resumePhoto){
+    resumePhoto.src='assets/images/profile-about.png';
+  }
+})();
 (function(){
   if(window.matchMedia('(pointer:coarse)').matches)return;
   var b=document.getElementById('vb-ball');
