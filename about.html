@@ -400,10 +400,6 @@ footer{border-top:1px solid var(--border);padding:26px 48px;display:flex;justify
     </div>
     <div class="theme-toggle-thumb"></div>
   </button>
-  <button class="theme-toggle" id="tt" aria-label="Toggle dark mode" onclick="toggleTheme()">
-    <div class="tt-track"><span class="tt-sun">&#9788;</span><span class="tt-moon">&#9790;</span></div>
-    <div class="tt-thumb"></div>
-  </button>
   </div>
 </nav>
 
@@ -641,6 +637,14 @@ els.forEach(el=>obs.observe(el));
 /* theme */
 (function(){var t=sessionStorage.getItem('vbt')||'light';if(t==='dark')document.documentElement.setAttribute('data-theme','dark');})();
 function toggleTheme(){var d=document.documentElement.getAttribute('data-theme')==='dark';if(d){document.documentElement.removeAttribute('data-theme');sessionStorage.setItem('vbt','light');}else{document.documentElement.setAttribute('data-theme','dark');sessionStorage.setItem('vbt','dark');}}
+
+/* Use updated profile image in about section */
+(function(){
+  var avatar=document.querySelector('.avatar img');
+  if(avatar){
+    avatar.src='assets/images/profile-about.png';
+  }
+})();
 /* physics ball */
 (function(){
   if(window.matchMedia('(pointer:coarse)').matches)return;

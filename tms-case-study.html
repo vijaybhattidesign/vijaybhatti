@@ -38,6 +38,9 @@ footer{border-top:1px solid var(--border);padding:26px 48px;display:flex;justify
 .flinks{display:flex;gap:24px}
 .fa{font-size:12px;color:var(--ink2);text-decoration:none;transition:color .2s}
 .fa:hover{color:var(--ink)}
+.breadcrumbs{max-width:var(--wide);margin:96px auto 0;padding:0 48px;font-size:12px;color:var(--ink3)}
+.breadcrumbs a{color:var(--ink2);text-decoration:none}
+.breadcrumbs a:hover{color:var(--ink)}
 @keyframes fu{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
 
 /* ── HERO ── */
@@ -266,6 +269,7 @@ footer{border-top:1px solid var(--border);padding:26px 48px;display:flex;justify
   .retro-in{grid-template-columns:1fr;gap:16px}
   .next{padding:48px 20px;flex-direction:column;align-items:flex-start;gap:16px}
   footer{padding:24px 20px;flex-direction:column;gap:12px;align-items:flex-start}
+  .breadcrumbs{padding:0 20px;margin-top:86px}
   .methods-grid{grid-template-columns:1fr}
 }
 
@@ -523,7 +527,7 @@ footer{border-top:1px solid var(--border);padding:26px 48px;display:flex;justify
 <nav id="nav">
   <a href="index.html" class="nlogo">VB</a>
   <div class="nr">
-    <a href="index.html" class="nl">Work</a>
+    <a href="index.html" class="nl">Home</a>
     <a href="about.html" class="nl">About</a>
     <a href="resume.html" class="nl">Resume</a>
   <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode" onclick="toggleTheme()">
@@ -533,12 +537,12 @@ footer{border-top:1px solid var(--border);padding:26px 48px;display:flex;justify
     </div>
     <div class="theme-toggle-thumb"></div>
   </button>
-  <button class="theme-toggle" id="tt" aria-label="Toggle dark mode" onclick="toggleTheme()">
-    <div class="tt-track"><span class="tt-sun">&#9788;</span><span class="tt-moon">&#9790;</span></div>
-    <div class="tt-thumb"></div>
-  </button>
   </div>
 </nav>
+
+<div class="breadcrumbs">
+  <a href="index.html">Home</a> &gt; Travel Expense Management
+</div>
 
 <!-- HERO -->
 <section class="hero">
@@ -1179,7 +1183,6 @@ footer{border-top:1px solid var(--border);padding:26px 48px;display:flex;justify
   <span class="fc">© 2025 Vijay Bhatti</span>
   <div class="flinks">
     <a href="https://www.linkedin.com/in/vijay-bhattti-4a036782/" class="fa" target="_blank">LinkedIn ↗</a>
-    <a href="/cdn-cgi/l/email-protection#d3a5bab9b2aab1bbb2a7a7bae2eaeae193b4beb2babffdb0bcbe" class="fa"><span class="__cf_email__" data-cfemail="addbc4c7ccd4cfc5ccd9d9c49c94949fedcac0ccc4c183cec2c0">[email&#160;protected]</span> ↗</a>
   </div>
 </footer>
 <script>
@@ -1199,6 +1202,17 @@ els.forEach(el=>obs.observe(el));
 /* theme */
 (function(){var t=sessionStorage.getItem('vbt')||'light';if(t==='dark')document.documentElement.setAttribute('data-theme','dark');})();
 function toggleTheme(){var d=document.documentElement.getAttribute('data-theme')==='dark';if(d){document.documentElement.removeAttribute('data-theme');sessionStorage.setItem('vbt','light');}else{document.documentElement.setAttribute('data-theme','dark');sessionStorage.setItem('vbt','dark');}}
+
+/* Updated dashboard screenshots provided by user */
+(function(){
+  var deskImages=document.querySelectorAll('.desk-screens .desk-card img');
+  if(deskImages[0]){
+    deskImages[0].src='assets/images/tms-employee-dashboard.png';
+  }
+  if(deskImages[1]){
+    deskImages[1].src='assets/images/tms-approver-dashboard.png';
+  }
+})();
 /* physics ball */
 (function(){
   if(window.matchMedia('(pointer:coarse)').matches)return;
