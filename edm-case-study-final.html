@@ -741,12 +741,12 @@ footer{border-top:1px solid var(--border);padding:26px 48px;display:flex;justify
       <div class="ta-col">
         <div class="ta-persona sub">Submitter — Pomilla</div>
         <ul class="ta-steps">
-          <li class="ta-step"><div class="ta-n active">1</div><div class="ta-body"><div class="ta-action">Recognise an incident has occurred</div><div class="ta-detail">Identifies event as reportable. Locates the reporting tool.</div></div></li>
-          <li class="ta-step"><div class="ta-n active">2</div><div class="ta-body"><div class="ta-action">Fill incident details</div><div class="ta-detail">Business unit, location, type, description, cost, risk owner.</div><div class="ta-pain">Pain: No guidance on what each field expects. Guesses at "Business Impact."</div></div></li>
-          <li class="ta-step"><div class="ta-n active">3</div><div class="ta-body"><div class="ta-action">Submit for review</div><div class="ta-detail">Submits and waits. Has no visibility into review status.</div><div class="ta-pain">Pain: No confirmation of receipt. No timeline.</div></div></li>
-          <li class="ta-step"><div class="ta-n">4</div><div class="ta-body"><div class="ta-action">Receive rejection (if incomplete)</div><div class="ta-detail">Gets email days later. Re-opens form. Guesses at what was wrong.</div><div class="ta-pain">Pain: Vague feedback. Same cycle repeats.</div></div></li>
-          <li class="ta-step"><div class="ta-n active">5</div><div class="ta-body"><div class="ta-action">Complete Root Cause Analysis</div><div class="ta-detail">After approval, adds RCA entries with responsible parties and timelines.</div></div></li>
-          <li class="ta-step"><div class="ta-n active">6</div><div class="ta-body"><div class="ta-action">Add Action Plan items</div><div class="ta-detail">Assigns actions to team members. Sets due dates. Submits incident.</div></div></li>
+          <li class="ta-step"><div class="ta-n active">1</div><div class="ta-body"><div class="ta-action">Click Create Incident</div><div class="ta-detail">Identifies event as reportable. Locates the reporting tool and clicks Create Incident.</div></div></li>
+          <li class="ta-step"><div class="ta-n active">2</div><div class="ta-body"><div class="ta-action">Fill Details</div><div class="ta-detail">Business unit, location, type, description, cost, risk owner.</div></div></li>
+          <li class="ta-step"><div class="ta-n active">3</div><div class="ta-body"><div class="ta-action">Fill Root Cause Analysis</div><div class="ta-detail">Adds RCA entries with responsible parties and timelines.</div></div></li>
+          <li class="ta-step"><div class="ta-n active">4</div><div class="ta-body"><div class="ta-action">Fill Action Plan</div><div class="ta-detail">Assigns actions to team members and sets due dates.</div></div></li>
+          <li class="ta-step"><div class="ta-n active">5</div><div class="ta-body"><div class="ta-action">Submit Incident</div><div class="ta-detail">Submits the completed incident for review.</div></div></li>
+          <li class="ta-step"><div class="ta-n active">6</div><div class="ta-body"><div class="ta-action">Reviewer accepts/rejects</div><div class="ta-detail">Waits for the reviewer to accept or reject the incident.</div></div></li>
         </ul>
       </div>
       <div class="ta-col">
@@ -951,136 +951,27 @@ footer{border-top:1px solid var(--border);padding:26px 48px;display:flex;justify
 
     <div class="tf-cols">
 
-      <!-- SUBMITTER FLOW -->
-      <div class="tf-col">
-        <div class="tf-col-header sub">Submitter flow — Pomilla reporting an incident</div>
+      <!-- UNIFIED USER FLOW -->
+      <div class="tf-col" style="max-width: 600px; margin: 0 auto;">
+        <div class="tf-col-header sub" style="text-align: center;">User flow &mdash; Incident Management</div>
         <div class="fc">
 
-          <div class="fc-node start">Incident occurs</div>
+          <div class="fc-node start">Click Create Incident</div>
           <div class="fc-arrow"></div>
 
-          <div class="fc-node action">Access system via browser<br><span style="font-size:10px;color:var(--ink3)">Dashboard → Report New Incident</span></div>
+          <div class="fc-node action">Fill Details</div>
           <div class="fc-arrow"></div>
 
-          <div class="fc-node action">Step 1 — Fill incident details<br><span style="font-size:10px;color:var(--ink3)">Business unit, location, type, description, cost, risk owner</span></div>
+          <div class="fc-node action">Fill Root Cause Analysis</div>
           <div class="fc-arrow"></div>
 
-          <div class="fc-node system">System: inline field guidance visible<br>Risk Team Comments shown if present</div>
+          <div class="fc-node action">Fill Action Plan</div>
           <div class="fc-arrow"></div>
 
-          <div class="fc-node decision">All required fields complete?</div>
+          <div class="fc-node end">Submit Incident</div>
           <div class="fc-arrow"></div>
 
-          <div style="display:flex;width:100%;gap:8px;align-items:flex-start">
-            <div style="flex:1;display:flex;flex-direction:column;align-items:center">
-              <div class="fc-yes">Yes</div>
-              <div class="fc-node success">Submit for review</div>
-              <div class="fc-arrow"></div>
-              <div class="fc-node system">System: status set to "Submitted"<br>Risk team notified</div>
-              <div class="fc-arrow"></div>
-              <div class="fc-node action">Wait for approval<br><span style="font-size:10px;color:var(--ink3)">Track status on Incidents list</span></div>
-            </div>
-            <div style="flex:1;display:flex;flex-direction:column;align-items:center">
-              <div class="fc-no">No</div>
-              <div class="fc-node action">Save as draft</div>
-              <div class="fc-arrow"></div>
-              <div class="fc-node action">Continue later from Incidents list</div>
-            </div>
-          </div>
-          <div class="fc-arrow"></div>
-
-          <div class="fc-node decision">Reviewer approves?</div>
-          <div class="fc-arrow"></div>
-
-          <div style="display:flex;width:100%;gap:8px;align-items:flex-start">
-            <div style="flex:1;display:flex;flex-direction:column;align-items:center">
-              <div class="fc-yes">Yes</div>
-              <div class="fc-node success">Proceed to Step 2: RCA</div>
-              <div class="fc-arrow"></div>
-              <div class="fc-node action">Add Root Cause Analysis entries<br><span style="font-size:10px;color:var(--ink3)">Description, person responsible, dates</span></div>
-              <div class="fc-arrow"></div>
-              <div class="fc-node action">Step 3 — Add Action Plan items<br><span style="font-size:10px;color:var(--ink3)">Assign actions, set due dates</span></div>
-              <div class="fc-arrow"></div>
-              <div class="fc-node end">Submit incident ✓</div>
-            </div>
-            <div style="flex:1;display:flex;flex-direction:column;align-items:center">
-              <div class="fc-no">No — Insufficient Info</div>
-              <div class="fc-node pain">Notification received<br>"INC-0034 needs attention"</div>
-              <div class="fc-arrow"></div>
-              <div class="fc-node success">Open form — see contextual<br>comments on exact fields</div>
-              <div class="fc-arrow"></div>
-              <div class="fc-node action">Update specific fields<br>guided by reviewer comments</div>
-              <div class="fc-arrow"></div>
-              <div style="font-size:10px;color:var(--w);text-align:center;font-style:italic">↑ Loop back to Submit</div>
-            </div>
-          </div>
-
-        </div>
-      </div>
-
-      <!-- REVIEWER FLOW -->
-      <div class="tf-col">
-        <div class="tf-col-header rev">Reviewer flow — Ravi managing an incident</div>
-        <div class="fc">
-
-          <div class="fc-node start">New incident submitted</div>
-          <div class="fc-arrow"></div>
-
-          <div class="fc-node system">System notification sent<br>Incident appears in dashboard</div>
-          <div class="fc-arrow"></div>
-
-          <div class="fc-node action">Open incident from list<br><span style="font-size:10px;color:var(--ink3)">Incidents → INC-XXXX</span></div>
-          <div class="fc-arrow"></div>
-
-          <div class="fc-node action">Review Incident Details tab<br><span style="font-size:10px;color:var(--ink3)">Check all fields for completeness and accuracy</span></div>
-          <div class="fc-arrow"></div>
-
-          <div class="fc-node decision">Incident details complete &amp; accurate?</div>
-          <div class="fc-arrow"></div>
-
-          <div style="display:flex;width:100%;gap:8px;align-items:flex-start">
-            <div style="flex:1;display:flex;flex-direction:column;align-items:center">
-              <div class="fc-yes">Yes</div>
-              <div class="fc-node success">Approve incident</div>
-              <div class="fc-arrow"></div>
-              <div class="fc-node system">System: status → "Open"<br>Submitter notified to begin RCA</div>
-            </div>
-            <div style="flex:1;display:flex;flex-direction:column;align-items:center">
-              <div class="fc-no">No</div>
-              <div class="fc-node action">Add contextual comments<br>to specific fields</div>
-              <div class="fc-arrow"></div>
-              <div class="fc-node system">System: status → "Insufficient<br>Information"</div>
-              <div class="fc-arrow"></div>
-              <div class="fc-node action">Submitter notified in-app<br>+ email notification</div>
-              <div class="fc-arrow"></div>
-              <div style="font-size:10px;color:var(--ink3);text-align:center;font-style:italic">↑ Waits for resubmission</div>
-            </div>
-          </div>
-          <div class="fc-arrow"></div>
-
-          <div class="fc-node action">Monitor RCA completion<br><span style="font-size:10px;color:var(--ink3)">Root Cause Analysis tab — check entries</span></div>
-          <div class="fc-arrow"></div>
-
-          <div class="fc-node action">Track action item progress<br><span style="font-size:10px;color:var(--ink3)">Dashboard overdue tracker + Action Items tab</span></div>
-          <div class="fc-arrow"></div>
-
-          <div class="fc-node decision">All actions complete?</div>
-          <div class="fc-arrow"></div>
-
-          <div style="display:flex;width:100%;gap:8px;align-items:flex-start">
-            <div style="flex:1;display:flex;flex-direction:column;align-items:center">
-              <div class="fc-yes">Yes</div>
-              <div class="fc-node action">Verify effectiveness<br><span style="font-size:10px;color:var(--ink3)">Stage 3 of lifecycle</span></div>
-              <div class="fc-arrow"></div>
-              <div class="fc-node end">Close incident ✓<br>Audit trail complete</div>
-            </div>
-            <div style="flex:1;display:flex;flex-direction:column;align-items:center">
-              <div class="fc-no">No — overdue</div>
-              <div class="fc-node pain">Overdue flag on dashboard<br>Action item count: 27 → highlighted</div>
-              <div class="fc-arrow"></div>
-              <div class="fc-node action">Chase responsible party<br>via in-app notification</div>
-            </div>
-          </div>
+          <div class="fc-node decision">Reviewer accepts/rejects</div>
 
         </div>
       </div>
