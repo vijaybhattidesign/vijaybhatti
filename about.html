@@ -4,24 +4,26 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>About — Vijay Bhatti · Product Designer</title>
-<meta name="description" content="Vijay Bhatti — Product Designer specialising in enterprise B2B and multi-persona products. 4+ years experience. Currently at Coforge.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet">
+<meta name="description" content="Vijay Bhatti — Product Designer specialising in enterprise B2B and multi-persona products. 5 years experience. Currently at Coforge.">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
-  --bg:#F7F5F0;--bg-alt:#EEEAE2;--bg-dark:#151C13;
+  --bg:#FFFFFF;--bg-alt:#EEEAE2;--bg-dark:#151C13;
   --ink:#1A2018;--ink2:#565D53;--ink3:#96A092;
   --g:#2D5A27;--gl:#4A8A42;--gx:#E6F0E4;
   --w:#C4592A;--border:rgba(26,32,24,.10);--bm:rgba(26,32,24,.16);
-  --serif:'Playfair Display',Georgia,serif;--sans:'Outfit',system-ui,sans-serif;--wide:1060px;
+  --serif:'Segoe UI',system-ui,sans-serif;--sans:'Segoe UI',system-ui,sans-serif;--wide:1060px;
 }
-html{scroll-behavior:smooth}
-body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-weight:300;font-size:17px;line-height:1.75;-webkit-font-smoothing:antialiased}
+html{scroll-behavior:smooth;min-height:100%}
+body{position:relative;min-height:100vh;background:var(--bg);color:var(--ink);font-family:var(--sans);font-weight:300;font-size:17px;line-height:1.75;-webkit-font-smoothing:antialiased}
+body::before,body::after{content:"";position:fixed;inset:0;pointer-events:none}
+body::before{z-index:-2;background:radial-gradient(ellipse 72% 52% at 8% 8%,rgba(74,138,66,.16) 0%,transparent 58%),radial-gradient(ellipse 58% 44% at 92% 14%,rgba(45,90,39,.1) 0%,transparent 54%),radial-gradient(ellipse 64% 48% at 72% 88%,rgba(196,89,42,.06) 0%,transparent 56%),radial-gradient(ellipse 80% 60% at 40% 55%,rgba(230,240,228,.55) 0%,transparent 70%),linear-gradient(155deg,#fff 0%,#f6faf5 38%,#fff 72%,#f9fbf8 100%)}
+body::after{z-index:-1;opacity:.78;filter:blur(52px);background:radial-gradient(circle at 20% 75%,rgba(88,170,80,.15) 0%,transparent 32%),radial-gradient(circle at 82% 35%,rgba(74,138,66,.11) 0%,transparent 36%),radial-gradient(circle at 55% 15%,rgba(45,90,39,.08) 0%,transparent 30%)}
+[data-theme="dark"] body::before{background:radial-gradient(ellipse 70% 50% at 12% 12%,rgba(88,170,80,.26) 0%,transparent 58%),radial-gradient(ellipse 60% 42% at 88% 18%,rgba(45,90,39,.32) 0%,transparent 54%),radial-gradient(ellipse 55% 40% at 65% 92%,rgba(112,194,102,.15) 0%,transparent 56%),linear-gradient(165deg,#080d08 0%,#0D1410 45%,#0a100c 100%)}
+[data-theme="dark"] body::after{opacity:.92;background:radial-gradient(circle at 18% 72%,rgba(88,170,80,.18) 0%,transparent 34%),radial-gradient(circle at 82% 48%,rgba(70,130,62,.14) 0%,transparent 38%),radial-gradient(circle at 48% 8%,rgba(112,194,102,.1) 0%,transparent 28%)}
 #prog{position:fixed;top:0;left:0;right:0;z-index:200;height:2px;width:0;background:var(--g);transition:width .08s linear}
 nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:18px 48px;border-bottom:1px solid transparent;transition:background .3s,border-color .3s}
-nav.sc{background:rgba(247,245,240,.93);backdrop-filter:blur(14px);border-color:var(--border)}
+nav.sc{background:rgba(255,255,255,.82);backdrop-filter:blur(16px);border-color:var(--border)}
 .nlogo{font-family:var(--serif);font-size:15px;color:var(--ink);text-decoration:none;letter-spacing:.02em}
 .nr{display:flex;align-items:center;gap:28px}
 .nl{font-size:13px;color:var(--ink2);text-decoration:none;transition:color .2s;font-weight:300}
@@ -411,9 +413,9 @@ footer{border-top:1px solid var(--border);padding:26px 48px;display:flex;justify
     </div>
     <div class="id-right">
       <div class="id-name">Vijay Bhatti</div>
-      <div class="id-title">Product Designer · 4+ years in Enterprise B2B &amp; Fintech<br>Currently at Coforge · Gurugram, India</div>
+      <div class="id-title">Product Designer · 5 years in Enterprise B2B &amp; Fintech<br>Currently at Coforge · Gurugram, India</div>
       <div class="id-links">
-        <a href="https://www.linkedin.com/in/vijay-bhatti-4a036782" class="id-link" target="_blank">
+        <a href="https://www.linkedin.com/in/vijay-bhatti-hfi-cua%E2%84%A2-4a036782" class="id-link" target="_blank">
           <svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
           LinkedIn
         </a>
@@ -616,7 +618,7 @@ footer{border-top:1px solid var(--border);padding:26px 48px;display:flex;justify
 <footer>
   <span class="fc">© 2025 Vijay Bhatti</span>
   <div class="flinks">
-    <a href="https://www.linkedin.com/in/vijay-bhatti-4a036782" class="fa" target="_blank">LinkedIn</a>
+    <a href="https://www.linkedin.com/in/vijay-bhatti-hfi-cua%E2%84%A2-4a036782" class="fa" target="_blank">LinkedIn</a>
     <a href="/cdn-cgi/l/email-protection#74021d1e150d161c1500001d454d4d46341319151d185a171b19" class="fa">say hello ↗</a>
   </div>
 </footer>
