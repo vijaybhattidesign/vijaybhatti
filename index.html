@@ -302,7 +302,7 @@ footer{border-top:1px solid var(--border);padding:26px 48px;display:flex;justify
 .div-label{display:flex;align-items:center;gap:20px;padding:0 48px;max-width:var(--wide);margin:0 auto 48px}
 .dl-line{flex:1;height:1px;background:var(--border)}
 .dl-text{font-size:11px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--ink3)}
-.work-grid{display:grid;grid-template-columns:1fr 1fr;gap:2px;background:var(--bm);border-top:1px solid var(--bm);border-bottom:1px solid var(--bm);perspective:1200px;position:relative;z-index:3}
+.work-grid{display:grid;grid-template-columns:1fr 1fr;gap:2px;background:var(--bm);border-top:1px solid var(--bm);border-bottom:1px solid var(--bm);perspective:1200px;position:relative;z-index:3}.work-grid .wc:nth-child(3){grid-column:1/-1}.work-grid .wc{opacity:1;visibility:visible}
 .wc{background:var(--bg);text-decoration:none;display:flex;flex-direction:column;overflow:hidden;transition:background .2s,transform .35s ease,box-shadow .35s ease;transform-style:preserve-3d;position:relative}
 .wc::after{content:"";position:absolute;inset:0;background:radial-gradient(120% 80% at 10% 0%,rgba(88,170,80,.12),transparent 55%);opacity:0;transition:opacity .35s ease;pointer-events:none}
 .wc:hover{background:var(--bg-alt);transform:translateY(-8px) rotateX(2deg) rotateY(-1.5deg);box-shadow:0 20px 42px rgba(26,32,24,.12)}
@@ -428,20 +428,9 @@ footer{border-top:1px solid var(--border);padding:26px 48px;display:flex;justify
       <div class="wc-cta">Read case study <span>→</span></div>
     </div>
   </a>
-  <a href="fds-design.html" class="wc wc-live">
-    <div class="wc-thumb" style="background:linear-gradient(145deg,#0f1a12 0%,#1a2e1c 42%,#2d5a27 100%);display:flex;align-items:center;justify-content:center">
-      <svg width="220" height="140" viewBox="0 0 220 140" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-        <rect x="18" y="28" width="52" height="18" rx="3" fill="rgba(255,255,255,.18)"/>
-        <rect x="18" y="54" width="72" height="12" rx="2" fill="rgba(255,255,255,.12)"/>
-        <rect x="18" y="74" width="64" height="12" rx="2" fill="rgba(255,255,255,.1)"/>
-        <rect x="18" y="94" width="40" height="22" rx="4" fill="#58AA50"/>
-        <rect x="110" y="28" width="92" height="84" rx="6" fill="rgba(255,255,255,.1)" stroke="rgba(255,255,255,.22)"/>
-        <circle cx="132" cy="52" r="10" fill="rgba(88,170,80,.7)"/>
-        <rect x="150" y="44" width="38" height="8" rx="2" fill="rgba(255,255,255,.35)"/>
-        <rect x="150" y="58" width="28" height="6" rx="2" fill="rgba(255,255,255,.2)"/>
-        <rect x="124" y="78" width="64" height="8" rx="2" fill="rgba(255,255,255,.16)"/>
-        <rect x="124" y="92" width="48" height="8" rx="2" fill="rgba(255,255,255,.12)"/>
-      </svg>
+  <a href="fds-design.html" class="wc wc-live" id="project-fds">
+    <div class="wc-thumb">
+      <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMjAwIiBoZWlnaHQ9IjcwMCIgdmlld0JveD0iMCAwIDEyMDAgNzAwIj48ZGVmcz48bGluZWFyR3JhZGllbnQgaWQ9ImciIHgxPSIwIiB5MT0iMCIgeDI9IjEiIHkyPSIxIj48c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjMGYxYTEyIi8+PHN0b3Agb2Zmc2V0PSI0NSUiIHN0b3AtY29sb3I9IiMxYTJlMWMiLz48c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiMyZDVhMjciLz48L2xpbmVhckdyYWRpZW50PjwvZGVmcz48cmVjdCB3aWR0aD0iMTIwMCIgaGVpZ2h0PSI3MDAiIGZpbGw9InVybCgjZykiLz48cmVjdCB4PSI4MCIgeT0iMTIwIiB3aWR0aD0iNDIwIiBoZWlnaHQ9IjQ2MCIgcng9IjE2IiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMDgpIiBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4xOCkiLz48cmVjdCB4PSIxMjAiIHk9IjE3MCIgd2lkdGg9IjE4MCIgaGVpZ2h0PSIzNiIgcng9IjgiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC4yMikiLz48cmVjdCB4PSIxMjAiIHk9IjIzMCIgd2lkdGg9IjI4MCIgaGVpZ2h0PSIxOCIgcng9IjYiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC4xNCkiLz48cmVjdCB4PSIxMjAiIHk9IjI2OCIgd2lkdGg9IjI0MCIgaGVpZ2h0PSIxOCIgcng9IjYiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC4xKSIvPjxyZWN0IHg9IjEyMCIgeT0iMzIwIiB3aWR0aD0iMTIwIiBoZWlnaHQ9IjQ4IiByeD0iMTAiIGZpbGw9IiM1OEFBNTAiLz48cmVjdCB4PSI1NjAiIHk9IjEyMCIgd2lkdGg9IjU2MCIgaGVpZ2h0PSI0NjAiIHJ4PSIxNiIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjA4KSIgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMTgpIi8+PGNpcmNsZSBjeD0iNjYwIiBjeT0iMjQwIiByPSIzNiIgZmlsbD0iIzU4QUE1MCIvPjxyZWN0IHg9IjcyMCIgeT0iMjIwIiB3aWR0aD0iMjgwIiBoZWlnaHQ9IjIwIiByeD0iNiIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjM1KSIvPjxyZWN0IHg9IjcyMCIgeT0iMjU2IiB3aWR0aD0iMjAwIiBoZWlnaHQ9IjE0IiByeD0iNSIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjE4KSIvPjxyZWN0IHg9IjYyMCIgeT0iMzQwIiB3aWR0aD0iNDIwIiBoZWlnaHQ9IjE2IiByeD0iNSIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjE0KSIvPjxyZWN0IHg9IjYyMCIgeT0iMzgwIiB3aWR0aD0iMzYwIiBoZWlnaHQ9IjE2IiByeD0iNSIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjEpIi8+PHJlY3QgeD0iNjIwIiB5PSI0MjAiIHdpZHRoPSIzMDAiIGhlaWdodD0iMTYiIHJ4PSI1IiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMDgpIi8+PHRleHQgeD0iODAiIHk9IjkwIiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuNykiIGZvbnQtZmFtaWx5PSJTZWdvZSBVSSxBcmlhbCxzYW5zLXNlcmlmIiBmb250LXNpemU9IjI4Ij5GaW50ZWNoIERlc2lnbiBTeXN0ZW08L3RleHQ+PC9zdmc+" alt="Fintech Design System">
       <div class="wc-n">03</div>
       <div class="wc-proto-overlay">
         <div class="wc-proto-top"></div>
