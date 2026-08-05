@@ -1,0 +1,284 @@
+/**
+ * Fintech Design System case study — adaptive light/dark theme layer
+ * Tokens are defined on .desktop-2 in fds-design.css; this file overrides for dark mode.
+ */
+
+/* ── Stage chrome (outside scaled artboard) ── */
+[data-theme="dark"] html,
+[data-theme="dark"] body {
+  background: #0D1410;
+}
+
+[data-theme="dark"] .fds-stage {
+  background: #0D1410;
+}
+
+/* ── Dark palette (inherits into all var() usages in fds-design.css) ── */
+[data-theme="dark"] .desktop-2 {
+  --fds-bg: #0D1410;
+  --fds-bg-subtle: #101812;
+  --fds-bg-muted: #131A11;
+  --fds-surface: #131A11;
+  --fds-surface-raised: #1A2318;
+  --fds-text: #E8F2E4;
+  --fds-text-strong: #E8F2E4;
+  --fds-text-secondary: #AFCBAA;
+  --fds-text-muted: #93AF8E;
+  --fds-border: rgba(188, 228, 180, 0.16);
+  --fds-border-soft: rgba(188, 228, 180, 0.12);
+  --fds-border-light: rgba(188, 228, 180, 0.1);
+  --fds-accent: #5B9AFF;
+  --fds-accent-soft: rgba(91, 154, 255, 0.16);
+  --fds-line: rgba(188, 228, 180, 0.28);
+  --fds-specimen-bg: #1A2318;
+  --fds-error-bg: rgba(220, 80, 80, 0.14);
+  --fds-inverse: rgba(188, 228, 180, 0.22);
+  --fds-on-accent: #ffffff;
+  --fds-input-bg: #1E2820;
+  --fds-input-text: #E8F2E4;
+  --fds-disabled-text: #7A9475;
+  color-scheme: dark;
+}
+
+/* ── Hero overlay title — always dark text on light glass over photo ── */
+[data-theme="dark"] .fintech-design-system-container {
+  background:
+    rgba(255, 255, 255, 0.75) padding-box,
+    linear-gradient(-88.08deg, #fff, #999) border-box !important;
+  background-clip: padding-box, border-box !important;
+  -webkit-background-clip: padding-box, border-box !important;
+  backdrop-filter: blur(16px) saturate(1.2) !important;
+  -webkit-backdrop-filter: blur(16px) saturate(1.2) !important;
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.14),
+    0 2px 8px rgba(0, 0, 0, 0.06),
+    inset 0 1px 0 rgba(255, 255, 255, 0.85) !important;
+}
+
+[data-theme="dark"] .fintech-design-system2 {
+  color: #1a1d20 !important;
+  text-shadow:
+    0 0 20px rgba(255, 255, 255, 0.65),
+    0 1px 2px rgba(255, 255, 255, 0.9) !important;
+}
+
+[data-theme="dark"] .group-wrapper::before {
+  background: linear-gradient(
+    180deg,
+    rgba(8, 12, 10, 0.45) 0%,
+    rgba(8, 12, 10, 0.2) 40%,
+    rgba(8, 12, 10, 0.55) 100%
+  );
+}
+
+/* ── Section dividers & TOC leaders ── */
+[data-theme="dark"] .desktop-2-child,
+[data-theme="dark"] .desktop-2-item {
+  border-top-color: var(--fds-border) !important;
+}
+
+[data-theme="dark"] .dotted-leader {
+  background-color: var(--fds-text-muted);
+  opacity: 0.55;
+}
+
+[data-theme="dark"] .line2,
+[data-theme="dark"] .line3,
+[data-theme="dark"] .line16 {
+  background-color: var(--fds-line) !important;
+}
+
+/* ── Chapter labels stay accent blue ── */
+[data-theme="dark"] .chapter-header {
+  color: var(--fds-accent) !important;
+}
+
+/* ── Form & search specimens ── */
+.desktop-2 :is(
+  .dropdownsearch-field,
+  .dropdownsearch-field2,
+  .dropdownsearch-field3,
+  .dropdownsearch-field4,
+  .dropdownsearch-field5,
+  .date-picker,
+  .date-picker2,
+  .date-picker3,
+  .date-picker5,
+  .date-picker-interaction
+) {
+  background-color: var(--fds-input-bg) !important;
+  color: var(--fds-input-text) !important;
+}
+
+.desktop-2 :is(.text, .text-wrapper, .input-box) {
+  color: var(--fds-input-text);
+}
+
+[data-theme="dark"] .desktop-2 :is(.label2, .label10, .label12) {
+  color: var(--fds-text-strong) !important;
+}
+
+/* ── Evidence cards — keep accent border, soften shadow ── */
+[data-theme="dark"] .desktop-2 :is(
+  .evidence-card,
+  .evidence-card2,
+  .evidence-card9,
+  .evidence-card12,
+  .evidence-card13
+) {
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.35), 0 1px 2px rgba(0, 0, 0, 0.25);
+}
+
+[data-theme="dark"] .desktop-2 .principle-badge {
+  color: var(--fds-accent);
+}
+
+/* ── Navigation demo header inside specimens ── */
+[data-theme="dark"] .desktop-2 .header {
+  box-shadow: 0 1px 0 var(--fds-border-soft);
+}
+
+[data-theme="dark"] .desktop-2 .home3 {
+  color: var(--fds-text-strong) !important;
+}
+
+/* ── Menu / list item states (preserve semantic colors) ── */
+[data-theme="dark"] .desktop-2 .list-menu-item2 {
+  color: var(--fds-text-strong) !important;
+}
+
+[data-theme="dark"] .desktop-2 .list-menu-item6 {
+  color: var(--fds-text-strong) !important;
+}
+
+[data-theme="dark"] .desktop-2 .list-menu-item7,
+[data-theme="dark"] .desktop-2 .list-menu-item8,
+[data-theme="dark"] .desktop-2 .list-menu-item11 {
+  color: var(--fds-accent) !important;
+}
+
+[data-theme="dark"] .desktop-2 .left-menu-item3 {
+  color: var(--fds-on-accent) !important;
+}
+
+/* ── Primary nav/list buttons keep product blue (not .row-primary / .primary labels) ── */
+[data-theme="dark"] .desktop-2 :is(
+  .list-menu-item3,
+  .left-menu-item3
+) {
+  background-color: var(--fds-accent) !important;
+}
+
+/* ── Icon visibility on dark surfaces ── */
+[data-theme="dark"] .desktop-2 :is(
+  .chevron img,
+  .chevron7 img
+) {
+  filter: brightness(0) invert(1) opacity(0.82);
+}
+
+[data-theme="dark"] .desktop-2 .left-menu-item3 img,
+[data-theme="dark"] .desktop-2 .list-menu-item3 img {
+  filter: none;
+}
+
+/* ── Button style matrix (§2.1) — light & dark ── */
+.taxonomy-table > :is(.row-primary, .row-secondary, .row-subtle) {
+  background: transparent !important;
+}
+
+.taxonomy-table > :is(.row-primary, .row-secondary, .row-subtle) > .primary {
+  color: var(--fds-text) !important;
+  background: transparent !important;
+}
+
+.taxonomy-table .row-secondary :is(.chevron, .chevron7) img {
+  filter: none;
+}
+
+[data-theme="dark"] .taxonomy-table .row-secondary :is(.chevron, .chevron7) img {
+  filter: brightness(0) saturate(100%) invert(58%) sepia(68%) saturate(1200%) hue-rotate(196deg) brightness(102%) contrast(101%);
+}
+
+/* Export Report (figure-33) — accent chevron matches label; overrides generic .chevron img invert */
+[data-theme="dark"] .desktop-2 .button49 .chevron img {
+  filter: brightness(0) saturate(100%) invert(58%) sepia(68%) saturate(1200%) hue-rotate(196deg) brightness(102%) contrast(101%);
+}
+
+[data-theme="dark"] .desktop-2 :is(
+  .vector-icon4,
+  .vector-icon9,
+  .vector-icon17
+) {
+  filter: brightness(0) invert(1) opacity(0.82);
+}
+
+/* §4.1 directional chevron specimens */
+[data-theme="dark"] .chapter-4-icons .frame44 .col3 .chevron img {
+  filter: brightness(0) invert(1) opacity(0.82);
+}
+
+/* Profile dropdown chevron in header specimens */
+[data-theme="dark"] .desktop-2 .header .chevron10 img,
+[data-theme="dark"] .desktop-2 .profile2 .chevron10 img {
+  filter: brightness(0) invert(1) opacity(0.72);
+}
+
+.desktop-2 .header .chevron10 img,
+.desktop-2 .profile2 .chevron10 img {
+  filter: none;
+}
+
+[data-theme="dark"] .taxonomy-table .row-primary :is(.chevron, .chevron7) img {
+  filter: brightness(0) invert(1);
+}
+
+/* ── Decorative diagram atoms (keep hue, soften on dark) ── */
+[data-theme="dark"] .desktop-2 .ellipse,
+[data-theme="dark"] .desktop-2 .frame-child,
+[data-theme="dark"] .desktop-2 .frame-item,
+[data-theme="dark"] .desktop-2 .frame-child14,
+[data-theme="dark"] .desktop-2 .frame-child16 {
+  opacity: 0.92;
+}
+
+/* ── Profile / avatar labels ── */
+[data-theme="dark"] .desktop-2 .initials-fallback,
+[data-theme="dark"] .desktop-2 .figure-46,
+[data-theme="dark"] .desktop-2 .figure-38 {
+  color: var(--fds-text-muted) !important;
+}
+
+/* ── Table rows ── */
+[data-theme="dark"] .desktop-2 .table {
+  color: var(--fds-text-secondary) !important;
+}
+
+[data-theme="dark"] .desktop-2 .dropdown-component3 {
+  color: var(--fds-text) !important;
+}
+
+/* ── Footer copyright block ── */
+[data-theme="dark"] .desktop-2 .gatsou-c-politis-container {
+  color: var(--fds-text-muted) !important;
+}
+
+[data-theme="dark"] .desktop-2 .list-menu-item6 {
+  background-color: rgba(196, 89, 42, 0.16) !important;
+  color: var(--fds-text-strong) !important;
+}
+
+[data-theme="dark"] .desktop-2 .list-menu-item11 {
+  background-color: rgba(88, 170, 80, 0.18) !important;
+  color: var(--fds-accent) !important;
+}
+
+/* ── High-contrast preference ── */
+@media (prefers-contrast: more) {
+  [data-theme="dark"] .desktop-2 {
+    --fds-text-muted: #B8D4B2;
+    --fds-text-secondary: #D0E8CA;
+    --fds-border: rgba(188, 228, 180, 0.28);
+    --fds-border-soft: rgba(188, 228, 180, 0.22);
+  }
+}

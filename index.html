@@ -7,176 +7,377 @@
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
-  --bg:#FFFFFF;--bg-alt:#F3F4F2;--bg-dark:#151C13;
-  --ink:#1A2018;--ink2:#565D53;--ink3:#96A092;
-  --g:#2D5A27;--gl:#4A8A42;--gx:#E6F0E4;
+  --bg:#FFFFFF;--bg-alt:#EEEAE2;--bg-dark:#151C13;
+  --ink:#1A2018;--ink2:#3F463D;--ink3:#4F574E;
+  --g:#1E4A1C;--gl:#2D5A27;--gx:#E6F0E4;
   --w:#C4592A;--border:rgba(26,32,24,.10);--bm:rgba(26,32,24,.16);
   --serif:'Segoe UI',system-ui,sans-serif;
   --sans:'Segoe UI',system-ui,sans-serif;
-  --wide:1120px;
+  --wide:1060px;
+  --nav-h:64px;
 }
 html{scroll-behavior:smooth;min-height:100%}
-body{position:relative;min-height:100vh;background:var(--bg);color:var(--ink);font-family:var(--sans);font-weight:400;font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
+body{position:relative;min-height:100vh;background:var(--bg);color:var(--ink);font-family:var(--sans);font-weight:300;font-size:17px;line-height:1.75;-webkit-font-smoothing:antialiased}
 body::before,body::after{content:"";position:fixed;inset:0;pointer-events:none}
-body::before{z-index:-2;background:radial-gradient(ellipse 72% 52% at 8% 8%,rgba(74,138,66,.14) 0%,transparent 58%),radial-gradient(ellipse 58% 44% at 92% 14%,rgba(45,90,39,.08) 0%,transparent 54%),linear-gradient(155deg,#fff 0%,#f6faf5 40%,#fff 75%,#f9fbf8 100%)}
-body::after{z-index:-1;opacity:.7;filter:blur(48px);background:radial-gradient(circle at 18% 70%,rgba(88,170,80,.12) 0%,transparent 32%),radial-gradient(circle at 82% 30%,rgba(74,138,66,.08) 0%,transparent 36%)}
+body::before{z-index:-2;background:radial-gradient(ellipse 72% 52% at 8% 8%,rgba(74,138,66,.16) 0%,transparent 58%),radial-gradient(ellipse 58% 44% at 92% 14%,rgba(45,90,39,.1) 0%,transparent 54%),radial-gradient(ellipse 64% 48% at 72% 88%,rgba(196,89,42,.06) 0%,transparent 56%),radial-gradient(ellipse 80% 60% at 40% 55%,rgba(230,240,228,.55) 0%,transparent 70%),linear-gradient(155deg,#fff 0%,#f6faf5 38%,#fff 72%,#f9fbf8 100%)}
+body::after{z-index:-1;opacity:.78;filter:blur(52px);background:radial-gradient(circle at 20% 75%,rgba(88,170,80,.15) 0%,transparent 32%),radial-gradient(circle at 82% 35%,rgba(74,138,66,.11) 0%,transparent 36%),radial-gradient(circle at 55% 15%,rgba(45,90,39,.08) 0%,transparent 30%)}
 
 [data-theme="dark"]{
   --bg:#0D1410;--bg-alt:#131A11;--bg-dark:#070C07;
-  --ink:#D8E8D2;--ink2:#7A9E74;--ink3:#3E5C3A;
-  --g:#58AA50;--gl:#70C266;--gx:rgba(88,170,80,.13);
+  --ink:#E8F2E4;--ink2:#AFCBAA;--ink3:#93AF8E;
+  --g:#78D070;--gl:#8AE082;--gx:rgba(88,170,80,.13);
   --w:#D87860;--border:rgba(188,228,180,.08);--bm:rgba(188,228,180,.14);
 }
-[data-theme="dark"] body::before{background:radial-gradient(ellipse 70% 50% at 12% 12%,rgba(88,170,80,.22) 0%,transparent 58%),linear-gradient(165deg,#080d08 0%,#0D1410 45%,#0a100c 100%)}
-[data-theme="dark"] body::after{opacity:.9;background:radial-gradient(circle at 18% 72%,rgba(88,170,80,.16) 0%,transparent 34%)}
+[data-theme="dark"] body::before{background:radial-gradient(ellipse 70% 50% at 12% 12%,rgba(88,170,80,.26) 0%,transparent 58%),radial-gradient(ellipse 60% 42% at 88% 18%,rgba(45,90,39,.32) 0%,transparent 54%),radial-gradient(ellipse 55% 40% at 65% 92%,rgba(112,194,102,.15) 0%,transparent 56%),linear-gradient(165deg,#080d08 0%,#0D1410 45%,#0a100c 100%)}
+[data-theme="dark"] body::after{opacity:.92;background:radial-gradient(circle at 18% 72%,rgba(88,170,80,.18) 0%,transparent 34%),radial-gradient(circle at 82% 48%,rgba(70,130,62,.14) 0%,transparent 38%),radial-gradient(circle at 48% 8%,rgba(112,194,102,.1) 0%,transparent 28%)}
+[data-theme="dark"] .wc{background:var(--bg)}
+[data-theme="dark"] .wc:hover{background:var(--bg-alt)}
 
-/* Nav — wireframe: name left, links + resume CTA right */
-nav{position:sticky;top:0;z-index:100;display:flex;align-items:center;justify-content:space-between;gap:24px;padding:18px 40px;background:rgba(255,255,255,.88);backdrop-filter:blur(14px);border-bottom:1px solid var(--border)}
-[data-theme="dark"] nav{background:rgba(13,20,16,.9)}
-.nlogo{font-family:var(--serif);font-size:20px;font-weight:600;color:var(--ink);text-decoration:none;letter-spacing:-.01em}
-.nr{display:flex;align-items:center;gap:28px;flex-wrap:wrap}
-.nl{font-size:14px;color:var(--ink2);text-decoration:none;transition:color .2s}
-.nl:hover,.nl.active{color:var(--ink)}
-.btn-resume{display:inline-flex;align-items:center;padding:10px 18px;background:var(--ink);color:var(--bg);font-size:13px;font-weight:500;text-decoration:none;border-radius:2px;transition:background .2s}
-.btn-resume:hover{background:var(--g)}
-
-.theme-toggle{background:none;border:1px solid var(--border);border-radius:50px;cursor:pointer;display:flex;align-items:center;padding:5px 10px;position:relative;width:54px;height:28px}
-.theme-toggle-track{display:flex;width:100%;justify-content:space-between;padding:0 2px;pointer-events:none}
-.tt-sun,.tt-moon{font-size:11px;line-height:1;opacity:.4}
-.tt-sun{opacity:1}
-[data-theme="dark"] .tt-sun{opacity:.4}
-[data-theme="dark"] .tt-moon{opacity:1}
-.theme-toggle-thumb{position:absolute;width:18px;height:18px;border-radius:50%;background:var(--g);top:50%;transform:translateY(-50%);left:4px;transition:left .25s}
-[data-theme="dark"] .theme-toggle-thumb{left:calc(100% - 22px)}
-
-/* Worked-for banner */
-.worked{padding:28px 40px;background:linear-gradient(90deg,var(--bg-alt) 0%,rgba(255,255,255,.4) 55%,var(--bg-alt) 100%);border-bottom:1px solid var(--border)}
-[data-theme="dark"] .worked{background:linear-gradient(90deg,rgba(19,26,17,.95) 0%,rgba(13,20,16,.5) 55%,rgba(19,26,17,.95) 100%)}
-.worked-inner{max-width:var(--wide);margin:0 auto;display:flex;align-items:center;gap:36px;flex-wrap:wrap}
-.worked-label{font-size:14px;color:var(--ink2);white-space:nowrap;font-weight:500}
-.worked-logos{display:flex;align-items:center;gap:28px;flex-wrap:wrap}
-.logo-pill{display:flex;align-items:center;justify-content:center;min-width:120px;height:44px;padding:0 18px;background:var(--bg);border:1px solid var(--bm);border-radius:2px;font-size:13px;font-weight:600;color:var(--ink);letter-spacing:.02em}
-.logo-pill img{max-height:22px;max-width:110px;object-fit:contain;display:block}
-.logo-pill.muted{color:var(--ink2);font-weight:500}
-
-/* Main two-column layout */
-.main{max-width:var(--wide);margin:0 auto;padding:56px 40px 80px;display:grid;grid-template-columns:minmax(240px,320px) 1fr;gap:56px;align-items:start}
-.intro{position:sticky;top:96px}
-.intro-photo{width:100%;aspect-ratio:3/4;object-fit:cover;object-position:center top;border-radius:2px;background:var(--bg-alt);border:1px solid var(--border);display:block;margin-bottom:22px}
-.intro-role{font-size:18px;font-weight:600;color:var(--ink);margin-bottom:8px;line-height:1.35}
-.intro-work{font-size:15px;color:var(--ink2);margin-bottom:6px;line-height:1.55}
-.intro-industries{font-size:14px;color:var(--ink3);line-height:1.5}
-.intro-avail{display:inline-flex;align-items:center;gap:8px;margin-top:20px;font-size:12px;color:var(--ink3)}
+/* Above-the-fold two-column: intro left, case studies right */
+.landing{
+  max-width:var(--wide);
+  margin:0 auto;
+  padding:28px 48px 80px;
+  display:grid;
+  grid-template-columns:minmax(220px,300px) 1fr;
+  gap:48px;
+  align-items:start;
+  min-height:calc(100dvh - var(--nav-h));
+}
+.intro{
+  position:sticky;
+  top:calc(var(--nav-h) + 16px);
+  max-height:calc(100dvh - var(--nav-h) - 32px);
+  display:flex;
+  flex-direction:column;
+}
+.intro-photo{
+  width:100%;
+  max-height:min(42dvh,360px);
+  aspect-ratio:3/4;
+  object-fit:cover;
+  object-position:center top;
+  border-radius:2px;
+  background:var(--bg-alt);
+  border:1px solid var(--border);
+  display:block;
+  margin-bottom:18px;
+  flex-shrink:1;
+}
+.intro-role{
+  font-family:var(--serif);
+  font-size:clamp(20px,2.2vw,26px);
+  font-weight:400;
+  line-height:1.2;
+  color:var(--ink);
+  margin-bottom:10px;
+  letter-spacing:-.01em;
+}
+.intro-role em{font-style:italic;color:var(--g)}
+.intro-work{
+  font-size:15px;
+  color:var(--ink2);
+  line-height:1.65;
+  margin-bottom:8px;
+  font-weight:300;
+}
+.intro-industries{
+  font-size:13px;
+  color:var(--ink3);
+  line-height:1.5;
+  letter-spacing:.02em;
+}
+.intro-main{
+  display:flex;
+  flex-direction:column;
+  flex:1;
+  min-height:0;
+}
+.intro-copy{display:flex;flex-direction:column}
+.intro-avail{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  margin-top:16px;
+  font-size:12px;
+  color:var(--ink3);
+}
 .intro-dot{width:7px;height:7px;border-radius:50%;background:var(--gl)}
 
-/* Project list — media object cards */
-.projects{display:flex;flex-direction:column;gap:18px}
-.project{display:grid;grid-template-columns:148px 1fr;gap:22px;padding:18px;background:rgba(255,255,255,.72);border:1px solid var(--border);border-radius:4px;text-decoration:none;color:inherit;transition:border-color .2s,background .2s,transform .25s,box-shadow .25s}
-[data-theme="dark"] .project{background:rgba(19,26,17,.75)}
-.project:hover{border-color:var(--bm);background:var(--bg);transform:translateY(-2px);box-shadow:0 12px 28px rgba(26,32,24,.08)}
-.project-thumb{width:148px;height:112px;border-radius:3px;overflow:hidden;background:var(--bg-alt);border:1px solid var(--border)}
-.project-thumb img{width:100%;height:100%;object-fit:cover;object-position:top;display:block}
-.project-body{display:flex;flex-direction:column;justify-content:center;gap:4px;min-width:0}
-.project-title{font-size:18px;font-weight:600;color:var(--ink);letter-spacing:-.01em}
-.project-client{font-size:13px;font-weight:500;color:var(--g)}
-.project-did{font-size:14px;color:var(--ink2);line-height:1.5}
-.project-results{font-size:13px;color:var(--ink3);line-height:1.45}
+/* Case study cards — earlier wc styling, stacked on the right */
+.projects{
+  display:flex;
+  flex-direction:column;
+  gap:2px;
+  background:var(--bm);
+  border:1px solid var(--bm);
+}
+.wc{
+  background:var(--bg);
+  text-decoration:none;
+  display:flex;
+  flex-direction:column;
+  overflow:hidden;
+  transition:background .2s,transform .35s ease,box-shadow .35s ease;
+  position:relative;
+  color:inherit;
+}
+.wc::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:radial-gradient(120% 80% at 10% 0%,rgba(88,170,80,.12),transparent 55%);
+  opacity:0;
+  transition:opacity .35s ease;
+  pointer-events:none;
+}
+.wc:hover{
+  background:var(--bg-alt);
+  transform:translateY(-4px);
+  box-shadow:0 16px 36px rgba(26,32,24,.1);
+}
+.wc:hover::after{opacity:1}
+.wc-thumb{
+  overflow:hidden;
+  border-bottom:1px solid var(--border);
+  height:clamp(140px,16vw,200px);
+  position:relative;
+}
+.wc-thumb img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:top;
+  transition:transform .9s ease;
+  display:block;
+}
+.wc:hover .wc-thumb img{transform:scale(1.04)}
+.wc-body{padding:22px 26px 28px;flex:1}
+.wc-tags{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:10px}
+.wc-tag{
+  font-size:10px;
+  font-weight:500;
+  letter-spacing:.1em;
+  text-transform:uppercase;
+  color:var(--ink3);
+  padding:4px 10px;
+  border:1px solid var(--border);
+  border-radius:1px;
+}
+.wc-title{
+  font-family:var(--serif);
+  font-size:clamp(18px,2vw,22px);
+  font-weight:400;
+  line-height:1.2;
+  color:var(--ink);
+  margin-bottom:8px;
+  letter-spacing:-.01em;
+}
+.wc-client{font-size:12px;font-weight:500;color:var(--g);margin-bottom:8px;letter-spacing:.04em}
+.wc-desc{font-size:14px;line-height:1.75;color:var(--ink2);margin:0}
+.wc-results{font-size:13px;color:var(--ink3);margin-top:8px;line-height:1.5}
+.wc-cta{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  margin-top:16px;
+  font-size:13px;
+  font-weight:500;
+  color:var(--g);
+  transition:gap .2s;
+}
+.wc:hover .wc-cta{gap:12px}
 
-footer{border-top:1px solid var(--border);padding:24px 40px;display:flex;justify-content:space-between;align-items:center;max-width:var(--wide);margin:0 auto}
+footer{
+  border-top:1px solid var(--border);
+  padding:26px 48px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  max-width:var(--wide);
+  margin:0 auto;
+}
 .fc{font-size:12px;color:var(--ink3)}
-.fa{font-size:12px;color:var(--ink2);text-decoration:none}
+.fa{font-size:12px;color:var(--ink2);text-decoration:none;transition:color .2s}
 .fa:hover{color:var(--ink)}
 
 @media(max-width:900px){
   nav{padding:16px 20px}
-  .worked{padding:22px 20px}
-  .main{grid-template-columns:1fr;gap:36px;padding:40px 20px 64px}
-  .intro{position:static}
-  .intro-photo{max-width:280px}
-  .project{grid-template-columns:120px 1fr;gap:16px;padding:14px}
-  .project-thumb{width:120px;height:92px}
-  footer{padding:20px;flex-direction:column;gap:10px;align-items:flex-start}
+  .landing{
+    grid-template-columns:1fr;
+    gap:16px;
+    padding:16px 20px 48px;
+    min-height:auto;
+  }
+  .intro{
+    position:static;
+    max-height:none;
+  }
+  .intro-dot{width:6px;height:6px}
+  .wc-thumb{height:clamp(100px,26vw,132px)}
+  .wc-body{padding:16px 18px 20px}
+  footer{padding:24px 20px;flex-direction:column;gap:12px;align-items:flex-start}
+}
+@media(max-width:768px){
+  .intro{gap:14px}
+  .intro-main{
+    flex-direction:row;
+    align-items:center;
+    gap:16px;
+  }
+  .intro-photo{
+    width:32%;
+    max-width:108px;
+    min-width:80px;
+    max-height:none;
+    aspect-ratio:3/4;
+    margin-bottom:0;
+    flex-shrink:0;
+    align-self:center;
+  }
+  .intro-copy{
+    flex:1;
+    min-width:0;
+    justify-content:center;
+    gap:6px;
+  }
+  .intro-role{
+    font-size:17px;
+    line-height:1.2;
+    margin-bottom:0;
+  }
+  .intro-work{
+    font-size:12.5px;
+    line-height:1.45;
+    margin-bottom:0;
+  }
+  .intro-industries{
+    font-size:11px;
+    line-height:1.35;
+  }
+  .intro-avail{
+    margin-top:0;
+    width:100%;
+    font-size:11px;
+    gap:6px;
+  }
 }
 @media(max-width:560px){
-  .nr{gap:14px}
-  .btn-resume{padding:8px 12px;font-size:12px}
-  .project{grid-template-columns:1fr}
-  .project-thumb{width:100%;height:160px}
+  .landing{padding:12px 16px 40px;gap:14px}
+  .intro{gap:12px}
+  .intro-main{gap:14px}
+  .intro-photo{
+    max-width:96px;
+    min-width:72px;
+  }
+  .intro-role{font-size:16px}
+  .intro-work{font-size:12px;line-height:1.4}
+  .intro-industries{font-size:10px}
+  .intro-avail{font-size:10px}
+  .wc-thumb{height:clamp(92px,24vw,120px)}
+  .wc-body{padding:14px 16px 18px}
+  .wc-title{font-size:17px;margin-bottom:6px}
+  .wc-desc{font-size:13px;line-height:1.6}
 }
 </style>
+<link rel="stylesheet" href="site-a11y.css">
+<link rel="stylesheet" href="site-nav.css">
 </head>
 <body>
+<a class="skip-link" href="#main">Skip to content</a>
 
 <nav id="nav">
   <a href="index.html" class="nlogo">Vijay Bhatti.</a>
-  <div class="nr">
-    <a href="#case-studies" class="nl active">Case Studies</a>
-    <a href="about.html" class="nl">About</a>
-    <a href="vijaybhatti_Resume2026.pdf" class="btn-resume" target="_blank" rel="noopener">Download Resume</a>
-    <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode" onclick="toggleTheme()">
-      <div class="theme-toggle-track">
-        <span class="tt-sun">☀</span>
-        <span class="tt-moon">☾</span>
-      </div>
-      <div class="theme-toggle-thumb"></div>
+  <div class="nav-bar-actions">
+    <a href="VijayBhatti_Resume.pdf" class="btn-resume nav-resume-out" download="VijayBhatti_Resume.pdf">Download Resume</a>
+    <button type="button" class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="nav-menu" aria-label="Open menu">
+      <span class="nav-toggle-icon" aria-hidden="true">
+        <span class="nav-toggle-bar"></span>
+        <span class="nav-toggle-bar"></span>
+        <span class="nav-toggle-bar"></span>
+      </span>
     </button>
   </div>
-</nav>
-
-<section class="worked" aria-label="Companies worked for">
-  <div class="worked-inner">
-    <div class="worked-label">I’ve worked for</div>
-    <div class="worked-logos">
-      <div class="logo-pill muted">Coforge</div>
-      <div class="logo-pill muted">ED&amp;F Man</div>
-      <div class="logo-pill"><img src="assets/images/Volcafe.jpg" alt="Volcafe"></div>
+  <div class="nr" id="nav-menu" role="navigation" aria-label="Main">
+    <a href="index.html#case-studies" class="nl active">Case Studies</a>
+    <a href="about.html" class="nl">About</a>
+    <a href="VijayBhatti_Resume.pdf" class="btn-resume nav-resume-in" download="VijayBhatti_Resume.pdf">Download Resume</a>
+    <div class="nav-menu-theme">
+      <span class="nav-theme-label" id="nav-theme-label">Theme</span>
+      <button class="theme-toggle" id="theme-toggle" aria-labelledby="nav-theme-label" aria-label="Toggle dark mode" onclick="toggleTheme()">
+        <div class="theme-toggle-track">
+          <span class="tt-sun">☀</span>
+          <span class="tt-moon">☾</span>
+        </div>
+        <div class="theme-toggle-thumb"></div>
+      </button>
     </div>
   </div>
-</section>
+  <button type="button" class="nav-backdrop" id="nav-backdrop" aria-hidden="true" tabindex="-1"></button>
+</nav>
 
-<main class="main">
+<main class="landing" id="main">
   <aside class="intro">
-    <img class="intro-photo" src="assets/images/profile-about.png" alt="Vijay Bhatti">
-    <div class="intro-role">Senior UX / Product Designer</div>
-    <div class="intro-work">Designs multi-persona enterprise tools — from complex workflows to scalable design systems.</div>
-    <div class="intro-industries">Enterprise B2B · Fintech · AI-driven products</div>
+    <div class="intro-main">
+      <img class="intro-photo" src="assets/images/profile-about.png" alt="Vijay Bhatti">
+      <div class="intro-copy">
+        <div class="intro-role">Senior UX / Product Designer</div>
+        <div class="intro-work">Designs multi-persona enterprise tools — from complex workflows to scalable design systems.</div>
+        <div class="intro-industries">Enterprise B2B · Fintech · AI-driven products</div>
+      </div>
+    </div>
     <div class="intro-avail"><span class="intro-dot"></span>Open to Senior / Staff roles</div>
   </aside>
 
   <section class="projects" id="case-studies" aria-label="Case studies">
-    <a class="project" href="edm-case-study-final.html">
-      <div class="project-thumb">
+    <a class="wc" href="edm-case-study-final.html">
+      <div class="wc-thumb">
         <img src="assets/images/Incidents-Home.jpg" alt="Risk Incident Management screens">
       </div>
-      <div class="project-body">
-        <div class="project-title">Risk Incident Management</div>
-        <div class="project-client">ED&amp;F Man Capital Markets</div>
-        <div class="project-did">End-to-end incident lifecycle redesign for submitters and reviewers across 14 countries.</div>
-        <div class="project-results">↓ 32% bounce-backs · clearer review loops · shared action tracking</div>
+      <div class="wc-body">
+        <div class="wc-tags">
+          <span class="wc-tag">Enterprise B2B</span>
+          <span class="wc-tag">Multi-persona</span>
+        </div>
+        <div class="wc-title">Risk Incident Management</div>
+        <div class="wc-client">ED&amp;F Man Capital Markets</div>
+        <p class="wc-desc">End-to-end incident lifecycle redesign for submitters and reviewers across 14 countries.</p>
+        <div class="wc-results">↓ 32% bounce-backs · clearer review loops · shared action tracking</div>
+        <div class="wc-cta">View case study →</div>
       </div>
     </a>
 
-    <a class="project" href="tms-case-study.html">
-      <div class="project-thumb">
+    <a class="wc" href="tms-case-study.html">
+      <div class="wc-thumb">
         <img src="assets/images/tms-employee-dashboard.png" alt="Travel Management System dashboard">
       </div>
-      <div class="project-body">
-        <div class="project-title">Travel Management System</div>
-        <div class="project-client">Volcafe</div>
-        <div class="project-did">Two-phase Power Apps travel &amp; expense system connecting proposed budgets to actual spend.</div>
-        <div class="project-results">↓ 35% manual effort · faster post-trip reconciliation · mobile-ready flows</div>
+      <div class="wc-body">
+        <div class="wc-tags">
+          <span class="wc-tag">Power Apps</span>
+          <span class="wc-tag">Responsive</span>
+        </div>
+        <div class="wc-title">Travel Management System</div>
+        <div class="wc-client">Volcafe</div>
+        <p class="wc-desc">Two-phase travel &amp; expense system connecting proposed budgets to actual spend.</p>
+        <div class="wc-results">↓ 35% manual effort · faster post-trip reconciliation · mobile-ready flows</div>
+        <div class="wc-cta">View case study →</div>
       </div>
     </a>
 
-    <a class="project" href="fds-design.html" id="project-fds">
-      <div class="project-thumb">
+    <a class="wc" href="fds-design.html" id="project-fds">
+      <div class="wc-thumb">
         <img src="assets/Icons%20for%20fds-design/Case%20stuty%20hero_fds.png" alt="Fintech Design System product UI">
       </div>
-      <div class="project-body">
-        <div class="project-title">Fintech Design System</div>
-        <div class="project-client">Enterprise Fintech</div>
-        <div class="project-did">Atomic design system — components, states, and wayfinding patterns for scalable fintech products.</div>
-        <div class="project-results">Reusable UI kit · consistent forms &amp; navigation · documented component states</div>
+      <div class="wc-body">
+        <div class="wc-tags">
+          <span class="wc-tag">Design System</span>
+          <span class="wc-tag">Fintech</span>
+        </div>
+        <div class="wc-title">Fintech Design System</div>
+        <div class="wc-client">Enterprise Fintech</div>
+        <p class="wc-desc">Atomic design system — components, states, and wayfinding patterns for scalable fintech products.</p>
+        <div class="wc-results">Reusable UI kit · consistent forms &amp; navigation · documented component states</div>
+        <div class="wc-cta">View case study →</div>
       </div>
     </a>
   </section>
@@ -187,8 +388,9 @@ footer{border-top:1px solid var(--border);padding:24px 40px;display:flex;justify
   <a href="https://www.linkedin.com/in/vijay-bhatti-hfi-cua%E2%84%A2-4a036782" class="fa" target="_blank" rel="noopener">LinkedIn</a>
 </footer>
 
+<script src="site-nav.js" defer></script>
 <script>
-(function(){var t=sessionStorage.getItem('vbt')||'light';if(t==='dark')document.documentElement.setAttribute('data-theme','dark');})();
+(function(){var t=sessionStorage.getItem('vbt')||'dark';if(t==='dark')document.documentElement.setAttribute('data-theme','dark');})();
 function toggleTheme(){var d=document.documentElement.getAttribute('data-theme')==='dark';if(d){document.documentElement.removeAttribute('data-theme');sessionStorage.setItem('vbt','light');}else{document.documentElement.setAttribute('data-theme','dark');sessionStorage.setItem('vbt','dark');}}
 </script>
 </body>

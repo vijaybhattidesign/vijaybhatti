@@ -1,0 +1,335 @@
+/**
+ * Portfolio accessibility — WCAG 2.2 AAA-oriented tokens & POUR patterns
+ * Perceivable · Operable · Understandable · Robust
+ */
+
+/* AAA contrast tokens (7:1 normal text on white / dark bg) */
+:root {
+  --ink2: #3F463D;
+  --ink3: #4F574E;
+  --g: #1E4A1C;
+  --gl: #2D5A27;
+  --focus: #1E4A1C;
+  --focus-offset: 3px;
+}
+
+[data-theme="dark"] {
+  --ink: #E8F2E4;
+  --ink2: #AFCBAA;
+  --ink3: #93AF8E;
+  --g: #78D070;
+  --gl: #8AE082;
+  --focus: #8AE082;
+}
+
+/* Operable — visible keyboard focus (WCAG 2.4.7) */
+:focus {
+  outline: none;
+}
+
+:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: var(--focus-offset);
+}
+
+a:focus-visible,
+button:focus-visible,
+.btn-resume:focus-visible,
+.btn-s:focus-visible,
+.dl-btn:focus-visible,
+.nl:focus-visible,
+.nb:focus-visible,
+.fa:focus-visible,
+.theme-toggle:focus-visible,
+.wc:focus-visible,
+.project:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 3px;
+}
+
+/* Operable — touch targets (44×44px minimum where practical) */
+.theme-toggle {
+  min-width: 44px;
+  min-height: 44px;
+  box-sizing: border-box;
+}
+
+.nav-toggle {
+  min-width: 44px;
+  min-height: 44px;
+  box-sizing: border-box;
+}
+
+.btn-resume,
+.btn-s,
+.dl-btn {
+  min-height: 44px;
+  align-items: center;
+}
+
+/* Perceivable — respect user motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Perceivable — stronger contrast when requested */
+@media (prefers-contrast: more) {
+  :root {
+    --ink2: #2A3028;
+    --ink3: #3A4038;
+    --border: rgba(26, 32, 24, 0.24);
+    --bm: rgba(26, 32, 24, 0.34);
+  }
+
+  [data-theme="dark"] {
+    --ink: #F4FBF2;
+    --ink2: #C8E4C2;
+    --ink3: #B0D0AA;
+    --border: rgba(188, 228, 180, 0.2);
+  }
+}
+
+/* Understandable — skip navigation link */
+.skip-link {
+  position: absolute;
+  top: -120%;
+  left: 16px;
+  z-index: 1000;
+  padding: 12px 20px;
+  background: var(--ink);
+  color: var(--bg);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.4;
+  text-decoration: none;
+  border-radius: 0 0 4px 4px;
+}
+
+.skip-link:focus,
+.skip-link:focus-visible {
+  top: 0;
+  outline: 2px solid var(--focus);
+  outline-offset: 2px;
+}
+
+/* Perceivable — minimum readable type sizes */
+body {
+  font-size: max(16px, 1rem);
+  line-height: 1.6;
+}
+
+p,
+.intro-work,
+.wc-desc,
+.project-did {
+  line-height: 1.65;
+}
+
+.fc,
+.fa,
+.breadcrumbs {
+  font-size: max(12px, 0.75rem);
+}
+
+.mc-l,
+.sl,
+.h-tag,
+.wc-tag,
+.dl-label,
+.worked-label,
+.ta-n,
+.pc-role,
+.p-role,
+.jm-ph,
+.jm-rh,
+.ia-lifecycle-h,
+.platform-badge,
+.sn {
+  font-size: max(11px, 0.6875rem);
+  letter-spacing: 0.08em;
+}
+
+/* Perceivable — accent green text meets AAA on light surfaces */
+.wc-client,
+.project-client {
+  color: var(--g);
+}
+
+.nlogo:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 3px;
+}
+
+.nav-toggle:focus-visible,
+.nav-backdrop:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 3px;
+}
+
+/* Operable — ensure disabled-looking FDS items remain distinguishable */
+[data-theme="dark"] .list-menu-item5 .label2 {
+  color: var(--fds-disabled-text, #93AF8E) !important;
+}
+
+/* Understandable — visible link hover beyond color alone */
+.nl:hover,
+.nb:hover,
+.fa:hover {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+/* Robust — underline links in body copy for non-color cue */
+p a,
+.intro-work a,
+.as-p a {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+/* FDS case study — light mode token aliases on artboard */
+.desktop-2 {
+  --fds-text-muted: #4F574E;
+  --fds-text-caption: #4F574E;
+}
+
+/* IA diagram — theme-safe node contrast (WCAG AA) */
+.ia-root-node,
+.ia-node.l2 {
+  background: var(--bg-dark);
+  color: #fff;
+}
+
+.ia-node.l1 {
+  background: var(--g);
+  color: #fff;
+}
+
+.ia-node.l2g,
+.ia-leaf.hi {
+  background: var(--gx);
+  color: var(--g);
+}
+
+.ia-node.l2alt {
+  background: var(--ink2);
+  color: #fff;
+}
+
+[data-theme="dark"] .ia-root-node,
+[data-theme="dark"] .ia-node.l2,
+[data-theme="dark"] .ia-node.l2alt {
+  background: var(--bg-dark);
+  color: var(--ink);
+  border: 1px solid var(--bm);
+}
+
+[data-theme="dark"] .ia-node.l1 {
+  background: var(--g);
+  color: var(--bg-dark);
+}
+
+[data-theme="dark"] .ia-node.l2g,
+[data-theme="dark"] .ia-leaf.hi {
+  background: rgba(88, 170, 80, 0.22);
+  border-color: rgba(120, 208, 112, 0.32);
+  color: var(--ink);
+}
+
+/* FDS dark-mode theming lives in fds-theme.css */
+
+/* Flow chart nodes — WCAG AA contrast (light + dark) */
+:root {
+  --fc-start-bg: #1A2018;
+  --fc-start-fg: #FFFFFF;
+  --fc-end-bg: #1E4A1C;
+  --fc-end-fg: #FFFFFF;
+  --fc-action-bg: #FFFFFF;
+  --fc-action-fg: #1A2018;
+  --fc-action-border: rgba(26, 32, 24, 0.22);
+  --fc-decision-bg: #FFF8EE;
+  --fc-decision-fg: #1A2018;
+  --fc-decision-border: rgba(196, 89, 42, 0.35);
+  --fc-system-bg: #F0EDE6;
+  --fc-system-fg: #3F463D;
+  --fc-pain-bg: #FEF0EA;
+  --fc-pain-fg: #9A3A18;
+  --fc-success-bg: #E6F0E4;
+  --fc-success-fg: #1E4A1C;
+  --fc-success-border: rgba(45, 90, 39, 0.28);
+}
+
+[data-theme="dark"] {
+  --fc-start-bg: #151C13;
+  --fc-start-fg: #E8F2E4;
+  --fc-end-bg: #2D5A27;
+  --fc-end-fg: #F4FBF2;
+  --fc-action-bg: #131A11;
+  --fc-action-fg: #E8F2E4;
+  --fc-action-border: rgba(188, 228, 180, 0.3);
+  --fc-decision-bg: #2A2318;
+  --fc-decision-fg: #F5E8D8;
+  --fc-decision-border: rgba(216, 120, 96, 0.42);
+  --fc-system-bg: #161D14;
+  --fc-system-fg: #AFCBAA;
+  --fc-pain-bg: rgba(196, 89, 42, 0.18);
+  --fc-pain-fg: #F0C8BC;
+  --fc-success-bg: rgba(88, 170, 80, 0.18);
+  --fc-success-fg: #A8E8A0;
+  --fc-success-border: rgba(88, 170, 80, 0.38);
+}
+
+.fc-node.start {
+  background: var(--fc-start-bg);
+  color: var(--fc-start-fg);
+  border-color: var(--fc-start-bg);
+}
+
+.fc-node.end {
+  background: var(--fc-end-bg);
+  color: var(--fc-end-fg);
+  border-color: var(--fc-end-bg);
+}
+
+.fc-node.action {
+  background: var(--fc-action-bg);
+  color: var(--fc-action-fg);
+  border-color: var(--fc-action-border);
+}
+
+.fc-node.decision {
+  background: var(--fc-decision-bg);
+  color: var(--fc-decision-fg);
+  border-color: var(--fc-decision-border);
+}
+
+.fc-node.system {
+  background: var(--fc-system-bg);
+  color: var(--fc-system-fg);
+}
+
+.fc-node.pain {
+  background: var(--fc-pain-bg);
+  color: var(--fc-pain-fg);
+}
+
+.fc-node.success {
+  background: var(--fc-success-bg);
+  color: var(--fc-success-fg);
+  border-color: var(--fc-success-border);
+}
+
+[data-theme="dark"] .tf-col-header.rev {
+  background: var(--bg-alt, #131A11);
+  color: var(--ink2);
+}

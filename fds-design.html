@@ -6,49 +6,78 @@
   	<title>Fintech Design System — Vijay Bhatti</title>
   	<meta name="description" content="Fintech Design System — a scalable component library built on atomic design principles.">
   	<link rel="stylesheet" href="./fds-design.css" />
-  	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" />
-  	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap" />
   	<style>
-  	  html,body{margin:0;padding:0;background:#fff;overflow-x:hidden;width:100%;max-width:100%}
-  	  *,*::before,*::after{box-sizing:border-box}
-  	  .fds-nav{
-  	    position:sticky;top:0;z-index:100;
-  	    display:flex;align-items:center;justify-content:space-between;gap:16px;
-  	    padding:14px clamp(16px,3vw,28px);
-  	    background:rgba(255,255,255,.94);backdrop-filter:blur(12px);
-  	    border-bottom:1px solid rgba(26,32,24,.1);
-  	    font-family:'Segoe UI',system-ui,sans-serif;
+  	  :root{
+  	    --bg:#FFFFFF;--ink:#1A2018;--ink2:#3F463D;--ink3:#4F574E;
+  	    --g:#1E4A1C;--border:rgba(26,32,24,.10);--bm:rgba(26,32,24,.16);--gx:#E6F0E4;
+  	    --serif:'Segoe UI',system-ui,sans-serif;--sans:'Segoe UI',system-ui,sans-serif;
   	  }
-  	  .fds-nav a{color:#1A2018;text-decoration:none;font-size:13px;white-space:nowrap}
-  	  .fds-nav .fds-back{color:#565D53}
-  	  .fds-nav .fds-back:hover{color:#1A2018}
-  	  .fds-nav .fds-logo{font-weight:600;letter-spacing:.02em;font-size:15px}
+  	  [data-theme="dark"]{--bg:#0D1410;--ink:#E8F2E4;--ink2:#AFCBAA;--ink3:#93AF8E;--g:#78D070;--border:rgba(188,228,180,.08);--bm:rgba(188,228,180,.16);--gx:rgba(88,170,80,.13)}
+  	  html,body{margin:0;padding:0;background:var(--bg,#fff);overflow-x:hidden;width:100%;max-width:100vw}
+  	  *,*::before,*::after{box-sizing:border-box}
   	  .fds-stage{
   	    width:100%;
   	    max-width:100vw;
   	    overflow:hidden;
   	    position:relative;
-  	    background:#fff;
+  	    background:var(--bg,#fff);
+  	    margin:0 auto;
+  	  }
+  	  .fds-scaler{
+  	    margin:0 auto;
+  	    overflow:hidden;
+  	    position:relative;
   	  }
   	  .fds-fit{
   	    width:1440px;
+  	    max-width:none;
   	    transform-origin:top left;
   	    position:relative;
   	    will-change:transform;
   	  }
-  	  .desktop-2{margin:0 auto}
-  	  @media (max-width:720px){
-  	    .fds-nav{padding:12px 16px}
-  	    .fds-nav .fds-back{font-size:12px}
+  	  .fds-fit .desktop-2{
+  	    width:1440px;
+  	    max-width:none;
+  	    margin:0;
   	  }
   	</style>
+  	<link rel="stylesheet" href="site-a11y.css">
+  	<link rel="stylesheet" href="site-nav.css">
+  	<link rel="stylesheet" href="fds-theme.css">
 </head>
 <body>
-  	<nav class="fds-nav">
-  	  <a class="fds-logo" href="index.html">VB</a>
-  	  <a class="fds-back" href="index.html">← Back to portfolio</a>
+  	<a class="skip-link" href="#main">Skip to content</a>
+  	<nav id="nav">
+  	  <a href="index.html" class="nlogo">Vijay Bhatti.</a>
+  	  <div class="nav-bar-actions">
+  	    <a href="VijayBhatti_Resume.pdf" class="btn-resume nav-resume-out" download="VijayBhatti_Resume.pdf">Download Resume</a>
+  	    <button type="button" class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="nav-menu" aria-label="Open menu">
+  	      <span class="nav-toggle-icon" aria-hidden="true">
+  	        <span class="nav-toggle-bar"></span>
+  	        <span class="nav-toggle-bar"></span>
+  	        <span class="nav-toggle-bar"></span>
+  	      </span>
+  	    </button>
+  	  </div>
+  	  <div class="nr" id="nav-menu" role="navigation" aria-label="Main">
+  	    <a href="index.html#case-studies" class="nl active">Case Studies</a>
+  	    <a href="about.html" class="nl">About</a>
+  	    <a href="VijayBhatti_Resume.pdf" class="btn-resume nav-resume-in" download="VijayBhatti_Resume.pdf">Download Resume</a>
+  	    <div class="nav-menu-theme">
+  	      <span class="nav-theme-label" id="nav-theme-label">Theme</span>
+  	      <button class="theme-toggle" id="theme-toggle" aria-labelledby="nav-theme-label" aria-label="Toggle dark mode" onclick="toggleTheme()">
+  	        <div class="theme-toggle-track">
+  	          <span class="tt-sun">☀</span>
+  	          <span class="tt-moon">☾</span>
+  	        </div>
+  	        <div class="theme-toggle-thumb"></div>
+  	      </button>
+  	    </div>
+  	  </div>
+  	  <button type="button" class="nav-backdrop" id="nav-backdrop" aria-hidden="true" tabindex="-1"></button>
   	</nav>
-  	<div class="fds-stage" id="fds-stage">
+  	<div class="fds-stage" id="main" role="main">
+  	<div class="fds-scaler" id="fds-scaler">
   	<div class="fds-fit" id="fds-fit">
   	<div class="desktop-2">
     		<div class="desktop-2-child">
@@ -150,20 +179,6 @@
           					</div>
         				</div>
         				<div class="atomic-design-systems-infograp">
-          					<div class="background-flow-curves">
-            						<div class="chart-spline">
-              							<img class="vector-icon" src="assets/Icons%20for%20fds-design/Ellipse%20489.svg" alt="">
-              							
-            						</div>
-            						<div class="chart-spline2">
-              							<img class="vector-icon" src="assets/Icons%20for%20fds-design/Ellipse%20489.svg" alt="">
-              							
-            						</div>
-            						<div class="chart-spline3">
-              							<img class="vector-icon" src="assets/Icons%20for%20fds-design/Ellipse%20489.svg" alt="">
-              							
-            						</div>
-          					</div>
           					<div class="header-section">
             						<div class="atomic-design-principles">Atomic Design Principles</div>
             						<div class="building-consistent-scalable">Building consistent, scalable interfaces from the smallest functional elements up</div>
@@ -379,7 +394,7 @@
                         												<div class="text">Please Select Option</div>
                       											</div>
                       											<div class="chevron">
-                        												<img class="vector-icon4" src="assets/Icons%20for%20fds-design/Chevron.svg" alt="">
+                        												<img class="vector-icon4" src="assets/Icons%20for%20fds-design/Chevron%20down.svg" alt="">
                         												
                       											</div>
                     										</div>
@@ -428,7 +443,7 @@
                           													<div class="text">Please Select Option</div>
                         												</div>
                         												<div class="chevron">
-                          													<img class="vector-icon4" src="assets/Icons%20for%20fds-design/Chevron.svg" alt="">
+                          													<img class="vector-icon4" src="assets/Icons%20for%20fds-design/Chevron%20down.svg" alt="">
                           													
                         												</div>
                       											</div>
@@ -444,7 +459,7 @@
                           													<div class="text">United States (US)</div>
                         												</div>
                         												<div class="chevron">
-                          													<img class="vector-icon4" src="assets/Icons%20for%20fds-design/Chevron.svg" alt="">
+                          													<img class="vector-icon4" src="assets/Icons%20for%20fds-design/Chevron%20down.svg" alt="">
                           													
                         												</div>
                       											</div>
@@ -462,7 +477,7 @@
                           													<div class="text">Please Select Option</div>
                         												</div>
                         												<div class="chevron">
-                          													<img class="vector-icon4" src="assets/Icons%20for%20fds-design/Chevron.svg" alt="">
+                          													<img class="vector-icon4" src="assets/Icons%20for%20fds-design/Chevron%20down.svg" alt="">
                           													
                         												</div>
                       											</div>
@@ -478,7 +493,7 @@
                           													<div class="text">Invalid Option Chosen</div>
                         												</div>
                         												<div class="chevron">
-                          													<img class="vector-icon4" src="assets/Icons%20for%20fds-design/Chevron.svg" alt="">
+                          													<img class="vector-icon4" src="assets/Icons%20for%20fds-design/Chevron%20down.svg" alt="">
                           													
                         												</div>
                       											</div>
@@ -940,7 +955,7 @@
                     										<div class="button">
                       											<div class="menu-item">Primary Action</div>
                       											<div class="chevron">
-                        												<img class="vector-icon9" src="assets/Icons%20for%20fds-design/Chevron.svg" alt="">
+                        												<img class="vector-icon9" src="assets/Icons%20for%20fds-design/Chevron%20right.svg" alt="">
                         												
                       											</div>
                     										</div>
@@ -967,7 +982,7 @@
                     										<div class="button9">
                       											<div class="menu-item">Secondary Action</div>
                       											<div class="chevron">
-                        												<img class="vector-icon9" src="assets/Icons%20for%20fds-design/Chevron.svg" alt="">
+                        												<img class="vector-icon9" src="assets/Icons%20for%20fds-design/Chevron%20right.svg" alt="">
                         												
                       											</div>
                     										</div>
@@ -1206,17 +1221,14 @@
               							<div class="header">
                 								<div class="fac-logo-parent">
                   									<div class="fac-logo">
-                    										<img class="fac-logo-child" src="assets/Icons%20for%20fds-design/Group.svg" alt="">
-                    										
                     										<div class="fac">FAC</div>
-                    										<div class="l">L</div>
                   									</div>
                   									<div class="breadcrums">
                     										<div class="home">Home</div>
                     										<div class="home">/</div>
-                    										<div class="home">Home</div>
+                    										<div class="home">Risk Management</div>
                     										<div class="home">/</div>
-                    										<div class="home3">Home</div>
+                    										<div class="home3">Incidents</div>
                   									</div>
                 								</div>
                 								<div class="profile">
@@ -1226,8 +1238,7 @@
                       											<div class="ss">SS</div>
                     										</div>
                     										<div class="chevron10">
-                      											<img class="vector-icon13" src="assets/Icons%20for%20fds-design/Chevron%20left.svg" alt="">
-                      											
+                      											<img class="vector-icon13" src="assets/Icons%20for%20fds-design/Chevron%20down.svg" alt="">
                     										</div>
                   									</div>
                 								</div>
@@ -1334,7 +1345,7 @@
                     										<div class="frame-parent11">
                       											<div class="label">
                         												<div class="chevron">
-                          													<img class="vector-icon9" src="assets/Icons%20for%20fds-design/Chevron.svg" alt="">
+                          													<img class="vector-icon9" src="assets/Icons%20for%20fds-design/Chevron%20left.svg" alt="">
                           													
                         												</div>
                       											</div>
@@ -1342,7 +1353,7 @@
                       											<div class="button49">
                         												<div class="menu-item">Export Report</div>
                         												<div class="chevron">
-                          													<img class="vector-icon9" src="assets/Icons%20for%20fds-design/Chevron.svg" alt="">
+                          													<img class="vector-icon4" src="assets/Icons%20for%20fds-design/Chevron%20down.svg" alt="">
                           													
                         												</div>
                       											</div>
@@ -1596,7 +1607,7 @@
                   									<div class="col-standard">
                     										<div class="hick-hyman-law">CURRENT STEP</div>
                     										<div class="list-menu-item2">
-                      											<img class="calender-icon" src="assets/Icons%20for%20fds-design/Ellipse%20486.svg" alt="">
+                      											<img class="stashcircle-dot-duotone-icon" src="assets/Icons%20for%20fds-design/Active.svg" alt="">
                       											
                       											<div class="label2">Identity Validation</div>
                     										</div>
@@ -1612,7 +1623,7 @@
                   									<div class="col-standard">
                     										<div class="hick-hyman-law">COMPLETED STEP</div>
                     										<div class="list-menu-item3">
-                      											<img class="calender-icon" src="assets/Icons%20for%20fds-design/Ellipse%20486.svg" alt="">
+                      											<img class="calender-icon" src="assets/Icons%20for%20fds-design/Check.svg" alt="">
                       											
                       											<div class="label2">Key Retrieval</div>
                     										</div>
@@ -1622,7 +1633,7 @@
                   									<div class="col-standard">
                     										<div class="hick-hyman-law">AWAITING STEP</div>
                     										<div class="list-menu-item5">
-                      											<img class="calender-icon" src="assets/Icons%20for%20fds-design/Ellipse%20486.svg" alt="">
+                      											<img class="calender-icon" src="assets/Icons%20for%20fds-design/Ellipse%20488.svg" alt="">
                       											
                       											<div class="label2">Third-Party Sign-Off</div>
                     										</div>
@@ -1630,7 +1641,7 @@
                   									<div class="col-standard">
                     										<div class="hick-hyman-law">ERROR/FAILED STEP</div>
                     										<div class="list-menu-item6">
-                      											<img class="calender-icon" src="assets/Icons%20for%20fds-design/Ellipse%20486.svg" alt="">
+                      											<img class="calender-icon" src="assets/Icons%20for%20fds-design/Error.svg" alt="">
                       											
                       											<div class="label2">Validation Mismatch</div>
                     										</div>
@@ -1673,32 +1684,32 @@
                   									<div class="menu-item27">Audit Process</div>
                 								</div>
                 								<div class="list-menu-item9">
-                  									<img class="calender-icon" src="assets/Icons%20for%20fds-design/Ellipse%20486.svg" alt="">
+                  									<img class="calender-icon" src="assets/Icons%20for%20fds-design/Check.svg" alt="">
                   									
                   									<div class="label2">Initiate Scan</div>
                 								</div>
                 								<div class="list-menu-item9">
-                  									<img class="calender-icon" src="assets/Icons%20for%20fds-design/Ellipse%20486.svg" alt="">
+                  									<img class="calender-icon" src="assets/Icons%20for%20fds-design/Check.svg" alt="">
                   									
                   									<div class="label2">Rotation</div>
                 								</div>
                 								<div class="list-menu-item11">
-                  									<img class="calender-icon" src="assets/Icons%20for%20fds-design/Ellipse%20486.svg" alt="">
+                  									<img class="stashcircle-dot-duotone-icon" src="assets/Icons%20for%20fds-design/Active.svg" alt="">
                   									
                   									<div class="label2">Generate Keys</div>
                 								</div>
                 								<div class="list-menu-item12">
-                  									<img class="calender-icon" src="assets/Icons%20for%20fds-design/Ellipse%20486.svg" alt="">
+                  									<img class="calender-icon" src="assets/Icons%20for%20fds-design/clock.svg" alt="">
                   									
                   									<div class="label2">Publish Logs</div>
                 								</div>
                 								<div class="list-menu-item12">
-                  									<img class="calender-icon" src="assets/Icons%20for%20fds-design/Ellipse%20486.svg" alt="">
+                  									<img class="calender-icon" src="assets/Icons%20for%20fds-design/Ellipse%20488.svg" alt="">
                   									
                   									<div class="label2">Compliance</div>
                 								</div>
                 								<div class="list-menu-item12">
-                  									<img class="calender-icon" src="assets/Icons%20for%20fds-design/Ellipse%20486.svg" alt="">
+                  									<img class="calender-icon" src="assets/Icons%20for%20fds-design/Ellipse%20488.svg" alt="">
                   									
                   									<div class="label2">Database</div>
                 								</div>
@@ -1749,28 +1760,28 @@
               							<div class="frame44">
                 								<div class="col3">
                   									<div class="chevron">
-                    										<img class="vector-icon4" src="assets/Icons%20for%20fds-design/Chevron.svg" alt="">
+                    										<img class="vector-icon17" src="assets/Icons%20for%20fds-design/Chevron%20down.svg" alt="">
                     										
                   									</div>
                   									<div class="down">DOWN</div>
                 								</div>
                 								<div class="col3">
                   									<div class="chevron">
-                    										<img class="vector-icon17" src="assets/Icons%20for%20fds-design/Chevron%20down.svg" alt="">
+                    										<img class="vector-icon17" src="assets/Icons%20for%20fds-design/Chevron.svg" alt="">
                     										
                   									</div>
                   									<div class="down">UP</div>
                 								</div>
                 								<div class="col3">
                   									<div class="chevron">
-                    										<img class="vector-icon9" src="assets/Icons%20for%20fds-design/Chevron.svg" alt="">
+                    										<img class="vector-icon17" src="assets/Icons%20for%20fds-design/Chevron%20left.svg" alt="">
                     										
                   									</div>
                   									<div class="down">LEFT</div>
                 								</div>
                 								<div class="col3">
                   									<div class="chevron">
-                    										<img class="vector-icon9" src="assets/Icons%20for%20fds-design/Chevron.svg" alt="">
+                    										<img class="vector-icon17" src="assets/Icons%20for%20fds-design/Chevron%20right.svg" alt="">
                     										
                   									</div>
                   									<div class="down">RIGHT</div>
@@ -1940,7 +1951,7 @@
                 								</div>
                 								<div class="col3">
                   									<div class="avator">
-                    										<img class="avatar-image-icon" src="assets/Icons%20for%20fds-design/Avatar%20Image.png" alt="">
+                    										<img class="avatar-image-icon" src="assets/Icons%20for%20fds-design/Avatar%20Image%20male.png" alt="">
                     										
                   									</div>
                   									<div class="down">MALE OPTION</div>
@@ -1986,8 +1997,7 @@
                     										
                   									</div>
                   									<div class="chevron10">
-                    										<img class="vector-icon13" src="assets/Icons%20for%20fds-design/Chevron%20left.svg" alt="">
-                    										
+                    										<img class="vector-icon13" src="assets/Icons%20for%20fds-design/Chevron%20down.svg" alt="">
                   									</div>
                 								</div>
               							</div>
@@ -2017,10 +2027,10 @@
           					<div class="figure-31">
             						<div class="specimen-void14">
               							<div class="fac-logo2">
-                								<img class="fac-logo-child" src="assets/Icons%20for%20fds-design/Group.svg" alt="">
-                								
+                								<div class="fac-logo-mark" aria-hidden="true">
+                									<span class="fac-logo-letter">L</span>
+                								</div>
                 								<div class="fac">FAC SYSTEMS</div>
-                								<div class="l2">L</div>
               							</div>
             						</div>
             						<div class="caption-block14">
@@ -2144,15 +2154,22 @@
   	</div>
 </div>
 </div>
+</div>
 
+<script src="site-nav.js" defer></script>
+<script>
+(function(){var t=sessionStorage.getItem('vbt')||'dark';if(t==='dark')document.documentElement.setAttribute('data-theme','dark');})();
+function toggleTheme(){var d=document.documentElement.getAttribute('data-theme')==='dark';if(d){document.documentElement.removeAttribute('data-theme');sessionStorage.setItem('vbt','light');}else{document.documentElement.setAttribute('data-theme','dark');sessionStorage.setItem('vbt','dark');}}
+</script>
 <script>
 (function () {
   var DESIGN_W = 1440;
   var DESIGN_H = 22675;
-  var stage = document.getElementById("fds-stage");
+  var stage = document.getElementById("main");
+  var scaler = document.getElementById("fds-scaler");
   var fit = document.getElementById("fds-fit");
   var canvas = fit ? fit.querySelector(".desktop-2") : null;
-  if (!stage || !fit) return;
+  if (!stage || !scaler || !fit) return;
 
   var raf = 0;
 
@@ -2162,23 +2179,59 @@
     return document.documentElement.clientWidth || window.innerWidth || DESIGN_W;
   }
 
+  function getViewHeight() {
+    var vv = window.visualViewport;
+    if (vv && vv.height) return vv.height;
+    return window.innerHeight || 800;
+  }
+
+  function syncHeroFoldHeight(scale) {
+    var hero = fit.querySelector(".group-wrapper");
+    if (!hero) return;
+    var nav = document.getElementById("nav");
+    var navH = nav ? nav.offsetHeight : 0;
+    var foldH = Math.max(160, getViewHeight() - navH);
+    var heroDesignH = Math.round(foldH / scale);
+    document.documentElement.style.setProperty("--fds-hero-h", heroDesignH + "px");
+    hero.style.height = heroDesignH + "px";
+  }
+
   function scalePage() {
     var viewW = Math.max(320, getViewWidth());
     var scale = Math.min(1, viewW / DESIGN_W);
+    syncHeroFoldHeight(scale);
     var naturalH = (canvas && canvas.offsetHeight) || fit.offsetHeight || DESIGN_H;
+    var scaledW = DESIGN_W * scale;
+    var scaledH = naturalH * scale;
 
     fit.style.width = DESIGN_W + "px";
+    fit.style.maxWidth = "none";
+    fit.style.height = naturalH + "px";
     fit.style.transformOrigin = "top left";
     fit.style.transform = "scale(" + scale + ")";
-    fit.style.marginLeft = Math.max(0, (viewW - DESIGN_W * scale) / 2) + "px";
-    fit.style.marginBottom = (naturalH * (scale - 1)) + "px";
+    fit.style.margin = "0";
+    fit.style.zoom = "";
+
+    if (canvas) {
+      canvas.style.width = DESIGN_W + "px";
+      canvas.style.maxWidth = "none";
+      canvas.style.margin = "0";
+    }
+
+    scaler.style.width = Math.ceil(scaledW) + "px";
+    scaler.style.height = Math.ceil(scaledH) + "px";
+    scaler.style.maxWidth = "100vw";
+    scaler.style.overflow = "hidden";
+    scaler.style.margin = "0 auto";
 
     stage.style.width = "100%";
-    stage.style.height = Math.ceil(naturalH * scale) + "px";
+    stage.style.maxWidth = "100vw";
+    stage.style.height = Math.ceil(scaledH) + "px";
     stage.style.overflow = "hidden";
 
     document.documentElement.style.overflowX = "hidden";
     document.body.style.overflowX = "hidden";
+    document.body.style.maxWidth = "100vw";
   }
 
   function scheduleScale() {
@@ -2196,13 +2249,16 @@
   if (window.visualViewport) {
     window.visualViewport.addEventListener("resize", scheduleScale, { passive: true });
   }
-  if (window.ResizeObserver) {
-    new ResizeObserver(scheduleScale).observe(document.documentElement);
+  if (window.ResizeObserver && canvas) {
+    new ResizeObserver(scheduleScale).observe(canvas);
+  }
+  var navEl = document.getElementById("nav");
+  if (window.ResizeObserver && navEl) {
+    new ResizeObserver(scheduleScale).observe(navEl);
   }
   if (document.fonts && document.fonts.ready) {
     document.fonts.ready.then(scheduleScale).catch(function () {});
   }
-  // Recalculate after images settle
   setTimeout(scheduleScale, 300);
   setTimeout(scheduleScale, 1200);
 })();
