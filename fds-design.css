@@ -1,6 +1,9 @@
-img{max-width:100%;height:auto;object-fit:contain}
+/* Keep Locofy icon dimensions; object-fit only */
+.fds-stage img{object-fit:contain}
 .desktop-2 {
-  	width: 100%;
+  	width: 1440px;
+  	max-width: 1440px;
+  	margin: 0 auto;
   	height: 22675px;
   	position: relative;
   	background-color: #fff;
@@ -16,7 +19,7 @@ img{max-width:100%;height:auto;object-fit:contain}
   	left: -0.5px;
   	border-top: 1px solid #000;
   	box-sizing: border-box;
-  	width: 1677px;
+  	width: 1440px;
   	height: 1px;
   	flex-shrink: 0;
 }
@@ -26,7 +29,7 @@ img{max-width:100%;height:auto;object-fit:contain}
   	left: -0.5px;
   	border-top: 1px solid #000;
   	box-sizing: border-box;
-  	width: 1677px;
+  	width: 1440px;
   	height: 1px;
   	flex-shrink: 0;
 }
@@ -244,7 +247,7 @@ img{max-width:100%;height:auto;object-fit:contain}
   	color: #212529;
 }
 .background-flow-curves {
-  	width: 1445px;
+  	width: 1440px;
   	height: 731px;
   	margin: 0 !important;
   	position: absolute;
@@ -2693,3 +2696,16 @@ img{max-width:100%;height:auto;object-fit:contain}
   	line-height: 20px;
 }
 
+
+/* Keep Figma canvas sections within the 1440 artboard */
+.frame-parent,
+.group-wrapper,
+.atomic-design-systems-infograp,
+.frame-parent > * {
+  max-width: 1440px;
+  box-sizing: border-box;
+}
+.desktop-2-child,
+.desktop-2-item {
+  max-width: 1440px;
+}

@@ -9,13 +9,14 @@
   	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" />
   	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap" />
   	<style>
-  	  html,body{margin:0;padding:0;background:#fff}
+  	  html,body{margin:0;padding:0;background:#fff;overflow-x:hidden}
   	  .fds-nav{position:sticky;top:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:14px 28px;background:rgba(255,255,255,.92);backdrop-filter:blur(12px);border-bottom:1px solid rgba(26,32,24,.1);font-family:'Segoe UI',system-ui,sans-serif}
   	  .fds-nav a{color:#1A2018;text-decoration:none;font-size:13px}
   	  .fds-nav .fds-back{color:#565D53}
   	  .fds-nav .fds-back:hover{color:#1A2018}
   	  .fds-nav .fds-logo{font-weight:500;letter-spacing:.02em}
-  	  .fds-stage{width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch}
+  	  .fds-stage{width:100%;overflow:hidden;position:relative}
+  	  .fds-fit{width:1440px;transform-origin:top left;will-change:transform;position:relative}
   	  .desktop-2{margin:0 auto}
   	</style>
 </head>
@@ -24,7 +25,8 @@
   	  <a class="fds-logo" href="index.html">VB</a>
   	  <a class="fds-back" href="index.html">← Back to portfolio</a>
   	</nav>
-  	<div class="fds-stage">
+  	<div class="fds-stage" id="fds-stage">
+  	<div class="fds-fit" id="fds-fit">
   	<div class="desktop-2">
     		<div class="desktop-2-child">
     		</div>
@@ -2117,6 +2119,34 @@
       			</div>
     		</div>
   	</div>
-  	</div>
+</div>
+</div>
+
+<script>
+(function () {
+  var DESIGN_W = 1440;
+  var stage = document.getElementById("fds-stage");
+  var fit = document.getElementById("fds-fit");
+  if (!stage || !fit) return;
+
+  function scalePage() {
+    var viewW = document.documentElement.clientWidth || window.innerWidth;
+    var scale = Math.min(1, viewW / DESIGN_W);
+    fit.style.transformOrigin = "top left";
+    fit.style.transform = "scale(" + scale + ")";
+    fit.style.marginLeft = Math.max(0, (viewW - DESIGN_W * scale) / 2) + "px";
+    var naturalH = fit.offsetHeight || 22675;
+    fit.style.marginBottom = (naturalH * (scale - 1)) + "px";
+    stage.style.height = Math.ceil(naturalH * scale) + "px";
+  }
+
+  scalePage();
+  window.addEventListener("resize", scalePage);
+  window.addEventListener("load", scalePage);
+  if (document.fonts && document.fonts.ready) {
+    document.fonts.ready.then(scalePage).catch(function () {});
+  }
+})();
+</script>
 </body>
 </html>
