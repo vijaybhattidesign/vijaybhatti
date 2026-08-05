@@ -150,11 +150,20 @@ img{max-width:100%;height:auto;object-fit:contain}
   	box-sizing: border-box;
   	position: relative;
   	isolation: isolate;
+  	background-image: url("assets/Icons%20for%20fds-design/Case%20stuty%20hero_fds.png");
   	background-size: cover;
   	background-repeat: no-repeat;
-  	background-position: top;
+  	background-position: center center;
   	grid-column: 1;
   	grid-row: 1 / span 2;
+}
+.group-wrapper::before {
+  	content: "";
+  	position: absolute;
+  	inset: 0;
+  	background: linear-gradient(180deg, rgba(18,22,28,.18) 0%, rgba(18,22,28,.08) 40%, rgba(18,22,28,.35) 100%);
+  	pointer-events: none;
+  	z-index: 0;
 }
 .group-div {
   	width: 558px;
@@ -163,7 +172,7 @@ img{max-width:100%;height:auto;object-fit:contain}
   	margin: 0 !important;
   	top: 451px;
   	left: 441px;
-  	z-index: 0;
+  	z-index: 1;
   	flex-shrink: 0;
 }
 .group-child {
@@ -171,7 +180,7 @@ img{max-width:100%;height:auto;object-fit:contain}
   	top: 1px;
   	left: 3px;
   	border-radius: 8px;
-  	background: rgba(255, 255, 255, 0.6) padding-box, linear-gradient(-88.08deg, #fff, #999) border-box;
+  	background: rgba(255, 255, 255, 0.82) padding-box, linear-gradient(-88.08deg, #fff, #999) border-box;
   	border: 1px solid transparent;
   	box-sizing: border-box;
   	width: 554px;
@@ -180,6 +189,9 @@ img{max-width:100%;height:auto;object-fit:contain}
   	align-items: center;
   	justify-content: center;
   	padding: 16px 24px;
+  	backdrop-filter: blur(10px);
+  	-webkit-backdrop-filter: blur(10px);
+  	box-shadow: 0 10px 30px rgba(0,0,0,.12);
 }
 .fintech-design-system-wrapper {
   	position: absolute;
