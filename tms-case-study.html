@@ -132,26 +132,66 @@ footer{border-top:1px solid var(--border);padding:26px 48px;display:flex;justify
 .ta-pain{font-size:11px;color:var(--w);margin-top:4px;font-weight:500}
 
 /* ── JOURNEY MAP ── */
-.jm-wrap{background:var(--bg-dark);padding:72px 48px;opacity:0;transform:translateY(20px);transition:opacity .6s,transform .6s}
+.jm-wrap{background:var(--bg);padding:72px 48px;opacity:0;transform:translateY(20px);transition:opacity .6s,transform .6s;border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
 .jm-wrap.v{opacity:1;transform:none}
 .jm-inner{max-width:var(--wide);margin:0 auto}
-.jm-ey{font-size:10px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:8px}
-.jm-title{font-family:var(--serif);font-size:26px;font-weight:400;font-style:italic;color:rgba(255,255,255,.88);margin-bottom:8px}
-.jm-sub{font-size:14px;color:rgba(255,255,255,.4);margin-bottom:40px}
-.jm-type{font-size:11px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;margin-bottom:16px;padding-bottom:10px;border-bottom:1px solid rgba(255,255,255,.07)}
-.jm-type.asis{color:rgba(196,89,42,.7)}
-.jm-type.tobe{color:rgba(74,138,66,.7)}
-.jm-lanes{display:grid;grid-template-columns:80px repeat(5,1fr);gap:0;margin-bottom:48px}
+.jm-ey{font-size:10px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--g);margin-bottom:8px}
+.jm-title{font-family:var(--serif);font-size:26px;font-weight:400;font-style:italic;color:var(--ink);margin-bottom:8px}
+.jm-sub{font-size:14px;color:var(--ink2);margin-bottom:40px}
+.jm-type{font-size:11px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;margin-bottom:16px;padding-bottom:10px;border-bottom:1px solid var(--border)}
+.jm-type.asis{color:var(--w)}
+.jm-type.tobe{color:var(--g)}
+.jm-lanes{display:grid;grid-template-columns:80px repeat(5,1fr);gap:0;margin-bottom:48px;border:1px solid var(--border);border-radius:2px;overflow:hidden;background:var(--bg)}
 .jm-lanes:last-child{margin-bottom:0}
-.jm-ph{font-size:10px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;padding:0 14px 14px;border-bottom:1px solid rgba(255,255,255,.08);color:rgba(255,255,255,.35);border-right:1px solid rgba(255,255,255,.05)}
-.jm-ph span{display:block;font-size:12px;font-weight:400;letter-spacing:0;text-transform:none;color:rgba(255,255,255,.6);margin-top:3px;font-family:var(--serif);font-style:italic}
-.jm-rh{font-size:9px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.25);padding:12px 10px 12px 0;writing-mode:vertical-rl;display:flex;align-items:flex-end;border-right:1px solid rgba(255,255,255,.05)}
-.jm-cell{padding:12px 14px;border-right:1px solid rgba(255,255,255,.05);border-bottom:1px solid rgba(255,255,255,.04);font-size:12px;line-height:1.6;color:rgba(255,255,255,.5)}
+.jm-ph{font-size:10px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;padding:12px 14px 14px;border-bottom:1px solid var(--border);color:var(--ink3);border-right:1px solid var(--border);background:var(--bg-alt)}
+.jm-ph span{display:block;font-size:12px;font-weight:400;letter-spacing:0;text-transform:none;color:var(--ink2);margin-top:3px;font-family:var(--serif);font-style:italic}
+.jm-rh{font-size:9px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--ink3);padding:12px 10px 12px 0;writing-mode:vertical-rl;display:flex;align-items:flex-end;border-right:1px solid var(--border);background:var(--bg-alt)}
+.jm-cell{padding:12px 14px;border-right:1px solid var(--border);border-bottom:1px solid var(--border);font-size:12px;line-height:1.6;color:var(--ink2);background:var(--bg)}
 .jm-cell.lr{border-bottom:none}
-.jm-opp{font-size:11px;color:rgba(74,138,66,.8);padding:7px 9px;border:1px solid rgba(74,138,66,.18);border-radius:2px;background:rgba(74,138,66,.06);margin-top:6px}
-.jm-em{font-size:11px;color:rgba(255,255,255,.4);display:flex;align-items:center;gap:6px}
+.jm-opp{font-size:11px;color:var(--g);padding:7px 9px;border:1px solid rgba(45,90,39,.18);border-radius:2px;background:var(--gx);margin-top:6px}
+.jm-em{font-size:11px;color:var(--ink3);display:flex;align-items:center;gap:6px}
 .jd{width:9px;height:9px;border-radius:50%;flex-shrink:0}
 .ef{background:#C4592A}.en{background:#9AA097}.eo{background:#8AAB85}.ep{background:#4A8A42}
+/* IA tree */
+.ia-diagram{display:flex;flex-direction:column;align-items:center;width:100%;padding:8px 0 24px}
+.ia-root-node{padding:12px 28px;background:var(--ink);color:#fff;border-radius:2px;font-size:13px;font-weight:500;letter-spacing:.03em;text-align:center}
+.ia-stem{width:2px;height:28px;background:var(--bm)}
+.ia-branches{display:flex;justify-content:center;align-items:flex-start;width:100%;position:relative;padding-top:0}
+.ia-branches::before{content:none}
+.ia-col{flex:1;display:flex;flex-direction:column;align-items:center;min-width:0;padding:0 8px;position:relative}
+.ia-col::before{content:"";width:2px;height:22px;background:var(--bm);display:block;position:relative;z-index:1}
+.ia-col::after{content:"";position:absolute;top:0;height:2px;background:var(--bm);left:0;right:0}
+.ia-col:first-child::after{left:50%;right:0}
+.ia-col:last-child::after{left:0;right:50%}
+.ia-col:only-child::after{display:none}
+.ia-node{padding:9px 16px;border-radius:2px;font-size:12px;font-weight:500;white-space:nowrap;text-align:center}
+.ia-node.l1{background:var(--g);color:#fff}
+.ia-node.l2{background:var(--ink);color:#fff;font-size:11px;padding:8px 14px}
+.ia-node.l2g{background:var(--gx);border:1px solid rgba(45,90,39,.25);color:var(--g);font-size:11px;padding:8px 14px;font-weight:500}
+.ia-node.l2alt{background:var(--ink2);color:#fff;font-size:12px;font-weight:500;padding:9px 16px}
+.ia-col-stem{width:2px;height:16px;background:var(--bm)}
+.ia-leaves{display:flex;flex-direction:column;gap:6px;align-items:center;width:100%}
+.ia-leaf{padding:6px 12px;background:var(--bg);border:1px solid var(--border);color:var(--ink2);font-size:11px;border-radius:1px;white-space:nowrap;text-align:center;width:100%;max-width:160px;box-sizing:border-box}
+.ia-subbranches{display:flex;justify-content:center;align-items:flex-start;width:100%;position:relative}
+.ia-subbranches::before{content:none}
+.ia-subcol{flex:1;display:flex;flex-direction:column;align-items:center;padding:0 4px;min-width:0;position:relative}
+.ia-subcol::before{content:"";width:2px;height:14px;background:var(--bm);display:block;position:relative;z-index:1}
+.ia-subcol::after{content:"";position:absolute;top:0;height:2px;background:var(--bm);left:0;right:0}
+.ia-subcol:first-child::after{left:50%;right:0}
+.ia-subcol:last-child::after{left:0;right:50%}
+.ia-subcol:only-child::after{display:none}
+.ia-leaf-row{display:flex;flex-wrap:wrap;gap:4px;justify-content:center}
+.ia-leaf.sm{font-size:10px;padding:5px 8px;max-width:none;width:auto}
+.ia-leaf.hi{background:var(--gx);border-color:rgba(45,90,39,.2);color:var(--g);font-weight:500}
+.ia-lifecycle{margin-top:32px;width:100%;border:1px solid var(--bm);border-radius:2px;overflow:hidden}
+.ia-lifecycle-h{background:var(--bg-alt);padding:8px 16px;font-size:10px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--ink3);border-bottom:1px solid var(--bm)}
+.ia-lifecycle-row{display:grid;grid-template-columns:repeat(6,1fr)}
+.ia-lifecycle-cell{padding:10px 12px;border-right:1px solid var(--bm)}
+.ia-lifecycle-cell:last-child{border-right:none}
+.ia-lifecycle-cell.on{background:var(--gx)}
+.ia-lifecycle-cell .st{font-size:10px;font-weight:500;color:var(--ink3);margin-bottom:2px}
+.ia-lifecycle-cell.on .st{color:var(--g)}
+.ia-lifecycle-cell .lb{font-size:11px;color:var(--ink2)}
 
 /* ── IA ── */
 .ia-wrap{background:var(--bg-alt);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:72px 48px;opacity:0;transform:translateY(20px);transition:opacity .6s,transform .6s}
@@ -266,7 +306,7 @@ footer{border-top:1px solid var(--border);padding:26px 48px;display:flex;justify
   .bw{padding:0 20px}
   .sec{grid-template-columns:1fr;gap:14px;padding:56px 0}
   .p-wrap,.ta-grid,.findings-grid,.ds-grid,.tf-cols,.strat-grid,.desk-screens{grid-template-columns:1fr}
-  .jm-wrap,.ia-wrap,.ds-wrap,.retro{padding:56px 20px}
+  .jm-wrap,.ia-wrap,.retro{padding:56px 20px}
   .jm-lanes{grid-template-columns:1fr}
   .retro-in{grid-template-columns:1fr;gap:16px}
   .next{padding:48px 20px;flex-direction:column;align-items:flex-start;gap:16px}
@@ -349,9 +389,12 @@ footer{border-top:1px solid var(--border);padding:26px 48px;display:flex;justify
 /* Dark section overrides — keep dark areas dark in dark mode */
 [data-theme="dark"] .retro,
 [data-theme="dark"] .beliefs-wrap,
-[data-theme="dark"] .jm-wrap,
 [data-theme="dark"] .r-header {
   background: var(--bg-dark);
+}
+[data-theme="dark"] .jm-wrap {
+  background: var(--bg);
+  border-color: var(--border);
 }
 /* Screen labels */
 [data-theme="dark"] .desk-cap,
@@ -476,7 +519,8 @@ footer{border-top:1px solid var(--border);padding:26px 48px;display:flex;justify
 [data-theme="dark"] .wc:hover,[data-theme="dark"] .wc-ph{background:var(--bg-alt)}
 [data-theme="dark"] .wc-body{background:transparent}
 [data-theme="dark"] .retro,[data-theme="dark"] .beliefs-wrap,
-[data-theme="dark"] .jm-wrap,[data-theme="dark"] .r-header{background:var(--bg-dark)}
+[data-theme="dark"] .r-header{background:var(--bg-dark)}
+[data-theme="dark"] .jm-wrap{background:var(--bg);border-color:var(--border)}
 [data-theme="dark"] .ia-wrap,[data-theme="dark"] .lofi-section,
 [data-theme="dark"] .ds-wrap,[data-theme="dark"] .about-strip,
 [data-theme="dark"] .tf-wrap{background:var(--bg-alt)}
@@ -559,7 +603,7 @@ footer{border-top:1px solid var(--border);padding:26px 48px;display:flex;justify
       <div class="mc"><div class="mc-l">My role</div><div class="mc-v">Lead UX Designer</div></div>
       <div class="mc"><div class="mc-l">Timeline</div><div class="mc-v">6 months</div></div>
       <div class="mc"><div class="mc-l">Platform</div><div class="mc-v">Power Apps (web + mobile)</div></div>
-      <div class="mc"><div class="mc-l">Impact</div><div class="mc-v g">↓ 70% manual effort</div></div>
+      <div class="mc"><div class="mc-l">Impact</div><div class="mc-v g">↓ 35% manual effort</div></div>
     </div>
     <div style="font-size:11px;color:var(--ink3);font-style:italic;line-height:1.6">Client: Volcafe · ED&F Man Capital Markets · Internal enterprise tooling · Web + Mobile</div>
   </div>
@@ -813,100 +857,86 @@ footer{border-top:1px solid var(--border);padding:26px 48px;display:flex;justify
   <div class="ia-inner">
     <div class="ia-ey">Artifact — Information architecture</div>
     <div class="ia-title">Role-based module structure</div>
-    <div style="overflow-x:auto;padding-bottom:16px">
-      <div style="min-width:680px">
-        <div style="display:flex;flex-direction:column;align-items:center">
-          <div style="padding:10px 28px;background:var(--ink);color:#fff;border-radius:2px;font-size:13px;font-weight:500">Volcafe TMS — Travel Management System</div>
-          <div style="width:1px;height:20px;background:var(--bm)"></div>
-          <div style="display:flex;gap:4px;position:relative;width:100%">
-            <div style="position:absolute;top:0;left:15%;right:15%;height:1px;background:var(--bm)"></div>
-            <!-- Employee -->
-            <div style="flex:1;display:flex;flex-direction:column;align-items:center;padding:0 6px">
-              <div style="width:1px;height:18px;background:var(--bm)"></div>
-              <div style="padding:9px 18px;background:var(--g);color:#fff;border-radius:2px;font-size:12px;font-weight:500;white-space:nowrap">Employee View</div>
-              <div style="width:1px;height:14px;background:var(--bm)"></div>
-              <div style="display:flex;gap:6px;position:relative;width:100%">
-                <div style="position:absolute;top:0;left:5%;right:5%;height:1px;background:var(--bm)"></div>
-                <div style="flex:1;display:flex;flex-direction:column;align-items:center">
-                  <div style="width:1px;height:14px;background:var(--bm)"></div>
-                  <div style="padding:7px 12px;background:var(--ink);color:#fff;border-radius:2px;font-size:11px;white-space:nowrap">Dashboard</div>
-                  <div style="width:1px;height:10px;background:var(--bm)"></div>
-                  <div style="display:flex;flex-direction:column;gap:3px;align-items:center">
-                    <div style="padding:4px 10px;background:var(--bg);border:1px solid var(--border);color:var(--ink2);font-size:10px;border-radius:1px;white-space:nowrap">All requests list</div>
-                    <div style="padding:4px 10px;background:var(--bg);border:1px solid var(--border);color:var(--ink2);font-size:10px;border-radius:1px;white-space:nowrap">Status filters</div>
-                    <div style="padding:4px 10px;background:var(--bg);border:1px solid var(--border);color:var(--ink2);font-size:10px;border-radius:1px;white-space:nowrap">Search</div>
+    <div style="overflow-x:auto;padding-bottom:8px">
+      <div style="min-width:720px">
+        <div class="ia-diagram">
+          <div class="ia-root-node">Volcafe TMS — Travel Management System</div>
+          <div class="ia-stem"></div>
+          <div class="ia-branches" style="--ia-line-inset:25%">
+            <div class="ia-col">
+              <div class="ia-node l1">Employee View</div>
+              <div class="ia-col-stem"></div>
+              <div class="ia-subbranches">
+                <div class="ia-subcol">
+                  <div class="ia-node l2">Dashboard</div>
+                  <div class="ia-col-stem"></div>
+                  <div class="ia-leaves">
+                    <div class="ia-leaf sm">All requests list</div>
+                    <div class="ia-leaf sm">Status filters</div>
+                    <div class="ia-leaf sm">Search</div>
                   </div>
                 </div>
-                <div style="flex:1.5;display:flex;flex-direction:column;align-items:center">
-                  <div style="width:1px;height:14px;background:var(--bm)"></div>
-                  <div style="padding:7px 12px;background:var(--gx);border:1px solid rgba(45,90,39,.2);color:var(--g);border-radius:2px;font-size:11px;white-space:nowrap;font-weight:500">New Travel Request</div>
-                  <div style="width:1px;height:10px;background:var(--bm)"></div>
-                  <div style="display:flex;gap:3px">
-                    <div style="padding:4px 8px;background:var(--gx);border:1px solid rgba(45,90,39,.15);color:var(--g);font-size:9px;border-radius:1px;white-space:nowrap;font-weight:500">Travel details</div>
-                    <div style="padding:4px 8px;background:var(--gx);border:1px solid rgba(45,90,39,.15);color:var(--g);font-size:9px;border-radius:1px;white-space:nowrap;font-weight:500">Proposed expenses</div>
+                <div class="ia-subcol" style="flex:1.2">
+                  <div class="ia-node l2g">New Travel Request</div>
+                  <div class="ia-col-stem"></div>
+                  <div class="ia-leaf-row">
+                    <div class="ia-leaf sm hi">Travel details</div>
+                    <div class="ia-leaf sm hi">Proposed expenses</div>
                   </div>
                 </div>
-                <div style="flex:1.5;display:flex;flex-direction:column;align-items:center">
-                  <div style="width:1px;height:14px;background:var(--bm)"></div>
-                  <div style="padding:7px 12px;background:var(--ink);color:#fff;border-radius:2px;font-size:11px;white-space:nowrap">Actual Expenses</div>
-                  <div style="width:1px;height:10px;background:var(--bm)"></div>
-                  <div style="display:flex;gap:3px">
-                    <div style="padding:4px 8px;background:var(--bg);border:1px solid var(--border);color:var(--ink2);font-size:9px;border-radius:1px;white-space:nowrap">By date accordion</div>
-                    <div style="padding:4px 8px;background:var(--bg);border:1px solid var(--border);color:var(--ink2);font-size:9px;border-radius:1px;white-space:nowrap">Add expense modal</div>
-                    <div style="padding:4px 8px;background:var(--bg);border:1px solid var(--border);color:var(--ink2);font-size:9px;border-radius:1px;white-space:nowrap">Attach receipts</div>
+                <div class="ia-subcol" style="flex:1.2">
+                  <div class="ia-node l2">Actual Expenses</div>
+                  <div class="ia-col-stem"></div>
+                  <div class="ia-leaf-row">
+                    <div class="ia-leaf sm">By date accordion</div>
+                    <div class="ia-leaf sm">Add expense modal</div>
+                    <div class="ia-leaf sm">Attach receipts</div>
                   </div>
                 </div>
               </div>
             </div>
-            <!-- Approver -->
-            <div style="flex:1;display:flex;flex-direction:column;align-items:center;padding:0 6px">
-              <div style="width:1px;height:18px;background:var(--bm)"></div>
-              <div style="padding:9px 18px;background:var(--ink2);color:#fff;border-radius:2px;font-size:12px;font-weight:500;white-space:nowrap">Approver View</div>
-              <div style="width:1px;height:14px;background:var(--bm)"></div>
-              <div style="display:flex;gap:6px;position:relative;width:100%">
-                <div style="position:absolute;top:0;left:5%;right:5%;height:1px;background:var(--bm)"></div>
-                <div style="flex:1;display:flex;flex-direction:column;align-items:center">
-                  <div style="width:1px;height:14px;background:var(--bm)"></div>
-                  <div style="padding:7px 12px;background:var(--ink);color:#fff;border-radius:2px;font-size:11px;white-space:nowrap">Dashboard</div>
-                  <div style="width:1px;height:10px;background:var(--bm)"></div>
-                  <div style="display:flex;flex-direction:column;gap:3px;align-items:center">
-                    <div style="padding:4px 10px;background:var(--bg);border:1px solid var(--border);color:var(--ink2);font-size:10px;border-radius:1px;white-space:nowrap">Card grid view</div>
-                    <div style="padding:4px 10px;background:var(--bg);border:1px solid var(--border);color:var(--ink2);font-size:10px;border-radius:1px;white-space:nowrap">Status filter tabs</div>
-                    <div style="padding:4px 10px;background:var(--bg);border:1px solid var(--border);color:var(--ink2);font-size:10px;border-radius:1px;white-space:nowrap">Search by name</div>
+            <div class="ia-col">
+              <div class="ia-node l2alt">Approver View</div>
+              <div class="ia-col-stem"></div>
+              <div class="ia-subbranches">
+                <div class="ia-subcol">
+                  <div class="ia-node l2">Dashboard</div>
+                  <div class="ia-col-stem"></div>
+                  <div class="ia-leaves">
+                    <div class="ia-leaf sm">Card grid view</div>
+                    <div class="ia-leaf sm">Status filter tabs</div>
+                    <div class="ia-leaf sm">Search by name</div>
                   </div>
                 </div>
-                <div style="flex:1;display:flex;flex-direction:column;align-items:center">
-                  <div style="width:1px;height:14px;background:var(--bm)"></div>
-                  <div style="padding:7px 12px;background:var(--ink);color:#fff;border-radius:2px;font-size:11px;white-space:nowrap">Approve Phase 1</div>
-                  <div style="width:1px;height:10px;background:var(--bm)"></div>
-                  <div style="display:flex;flex-direction:column;gap:3px;align-items:center">
-                    <div style="padding:4px 10px;background:var(--bg);border:1px solid var(--border);color:var(--ink2);font-size:10px;border-radius:1px;white-space:nowrap">Proposed breakdown</div>
-                    <div style="padding:4px 10px;background:var(--bg);border:1px solid var(--border);color:var(--ink2);font-size:10px;border-radius:1px;white-space:nowrap">Approve / Reject</div>
+                <div class="ia-subcol">
+                  <div class="ia-node l2">Approve Phase 1</div>
+                  <div class="ia-col-stem"></div>
+                  <div class="ia-leaves">
+                    <div class="ia-leaf sm">Proposed breakdown</div>
+                    <div class="ia-leaf sm">Approve / Reject</div>
                   </div>
                 </div>
-                <div style="flex:1;display:flex;flex-direction:column;align-items:center">
-                  <div style="width:1px;height:14px;background:var(--bm)"></div>
-                  <div style="padding:7px 12px;background:var(--ink);color:#fff;border-radius:2px;font-size:11px;white-space:nowrap">Approve Phase 2</div>
-                  <div style="width:1px;height:10px;background:var(--bm)"></div>
-                  <div style="display:flex;flex-direction:column;gap:3px;align-items:center">
-                    <div style="padding:4px 10px;background:var(--bg);border:1px solid var(--border);color:var(--ink2);font-size:10px;border-radius:1px;white-space:nowrap">Actual vs proposed</div>
-                    <div style="padding:4px 10px;background:var(--bg);border:1px solid var(--border);color:var(--ink2);font-size:10px;border-radius:1px;white-space:nowrap">Receipt review</div>
-                    <div style="padding:4px 10px;background:var(--bg);border:1px solid var(--border);color:var(--ink2);font-size:10px;border-radius:1px;white-space:nowrap">Final approve / reject</div>
+                <div class="ia-subcol">
+                  <div class="ia-node l2">Approve Phase 2</div>
+                  <div class="ia-col-stem"></div>
+                  <div class="ia-leaves">
+                    <div class="ia-leaf sm">Actual vs proposed</div>
+                    <div class="ia-leaf sm">Receipt review</div>
+                    <div class="ia-leaf sm">Final approve / reject</div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-          <!-- 6-stage lifecycle bar -->
-          <div style="margin-top:32px;width:100%;border:1px solid var(--bm);border-radius:2px;overflow:hidden">
-            <div style="background:var(--bg-alt);padding:8px 16px;font-size:10px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--ink3);border-bottom:1px solid var(--bm)">6-stage request lifecycle</div>
-            <div style="display:grid;grid-template-columns:repeat(6,1fr)">
-              <div style="padding:10px 12px;border-right:1px solid var(--bm);background:var(--gx)"><div style="font-size:10px;font-weight:500;color:var(--g);margin-bottom:2px">Stage 1</div><div style="font-size:11px;color:var(--ink2)">Proposed Expenses</div></div>
-              <div style="padding:10px 12px;border-right:1px solid var(--bm)"><div style="font-size:10px;font-weight:500;color:var(--ink3);margin-bottom:2px">Stage 2</div><div style="font-size:11px;color:var(--ink2)">Submitted</div></div>
-              <div style="padding:10px 12px;border-right:1px solid var(--bm)"><div style="font-size:10px;font-weight:500;color:var(--ink3);margin-bottom:2px">Stage 3</div><div style="font-size:11px;color:var(--ink2)">Approved</div></div>
-              <div style="padding:10px 12px;border-right:1px solid var(--bm);background:var(--gx)"><div style="font-size:10px;font-weight:500;color:var(--g);margin-bottom:2px">Stage 4</div><div style="font-size:11px;color:var(--ink2)">Actual Expenses</div></div>
-              <div style="padding:10px 12px;border-right:1px solid var(--bm)"><div style="font-size:10px;font-weight:500;color:var(--ink3);margin-bottom:2px">Stage 5</div><div style="font-size:11px;color:var(--ink2)">Submitted</div></div>
-              <div style="padding:10px 12px"><div style="font-size:10px;font-weight:500;color:var(--ink3);margin-bottom:2px">Stage 6</div><div style="font-size:11px;color:var(--ink2)">Approved</div></div>
+          <div class="ia-lifecycle">
+            <div class="ia-lifecycle-h">6-stage request lifecycle</div>
+            <div class="ia-lifecycle-row">
+              <div class="ia-lifecycle-cell on"><div class="st">Stage 1</div><div class="lb">Proposed Expenses</div></div>
+              <div class="ia-lifecycle-cell"><div class="st">Stage 2</div><div class="lb">Submitted</div></div>
+              <div class="ia-lifecycle-cell"><div class="st">Stage 3</div><div class="lb">Approved</div></div>
+              <div class="ia-lifecycle-cell on"><div class="st">Stage 4</div><div class="lb">Actual Expenses</div></div>
+              <div class="ia-lifecycle-cell"><div class="st">Stage 5</div><div class="lb">Submitted</div></div>
+              <div class="ia-lifecycle-cell"><div class="st">Stage 6</div><div class="lb">Approved</div></div>
             </div>
           </div>
         </div>
@@ -914,7 +944,6 @@ footer{border-top:1px solid var(--border);padding:26px 48px;display:flex;justify
     </div>
   </div>
 </div>
-
 <!-- TASK FLOWS -->
 <div class="bw">
 <div class="tf-wrap" id="tflow">
@@ -972,117 +1001,6 @@ footer{border-top:1px solid var(--border);padding:26px 48px;display:flex;justify
   </div>
 </div>
 </div><!-- /bw -->
-
-<!-- DESIGN SYSTEM -->
-<div class="ds-wrap" id="ds">
-  <div class="ds-inner">
-    <div class="ds-ey">Artifact — Design system glimpse</div>
-    <div class="ds-title">Visual language of the Volcafe TMS</div>
-    <div class="ds-grid">
-      <div class="ds-block">
-        <div class="ds-lbl">Colour palette</div>
-        <div style="margin-bottom:14px">
-          <div style="font-size:11px;color:var(--ink3);margin-bottom:8px">Brand primary</div>
-          <div class="sw-row">
-            <div><div class="sw" style="background:#1A2A18"></div><div class="sw-l">#1A2A18</div></div>
-            <div><div class="sw" style="background:#3D6B30"></div><div class="sw-l">#3D6B30</div></div>
-            <div><div class="sw" style="background:#5A8A42"></div><div class="sw-l">#5A8A42</div></div>
-            <div><div class="sw" style="background:#E8F0E4"></div><div class="sw-l" style="border:1px solid #ddd">#E8F0E4</div></div>
-          </div>
-        </div>
-        <div style="margin-bottom:14px">
-          <div style="font-size:11px;color:var(--ink3);margin-bottom:8px">Semantic status</div>
-          <div class="sw-row">
-            <div><div class="sw" style="background:#E8A020"></div><div class="sw-l">Pending</div></div>
-            <div><div class="sw" style="background:#3D6B30"></div><div class="sw-l">Approved</div></div>
-            <div><div class="sw" style="background:#C4592A"></div><div class="sw-l">Rejected</div></div>
-            <div><div class="sw" style="background:#4A6080"></div><div class="sw-l">Action Req.</div></div>
-          </div>
-        </div>
-        <div>
-          <div style="font-size:11px;color:var(--ink3);margin-bottom:8px">Surface</div>
-          <div class="sw-row">
-            <div><div class="sw" style="background:#F4F6F2"></div><div class="sw-l" style="border:1px solid #ddd">Page bg</div></div>
-            <div><div class="sw" style="background:#FFFFFF"></div><div class="sw-l" style="border:1px solid #ddd">Card bg</div></div>
-            <div><div class="sw" style="background:#9AA092"></div><div class="sw-l">Muted</div></div>
-            <div><div class="sw" style="background:#1A2018"></div><div class="sw-l">Ink</div></div>
-          </div>
-        </div>
-      </div>
-      <div class="ds-block">
-        <div class="ds-lbl">Status badges</div>
-        <div class="badge-row">
-          <span class="bdg b-pend">Pending Approval</span>
-          <span class="bdg b-app">Approved</span>
-        </div>
-        <div class="badge-row">
-          <span class="bdg b-rej">Rejected</span>
-          <span class="bdg b-draft">Draft</span>
-          <span class="bdg b-act">Action Required</span>
-        </div>
-        <div class="badge-row">
-          <span class="bdg b-sub">Submitted</span>
-        </div>
-        <div style="margin-top:18px">
-          <div class="ds-lbl" style="margin-bottom:10px">Expense category badges</div>
-          <div class="cat-row">
-            <span class="cat cat-h">Hotel</span>
-            <span class="cat cat-f">Flight</span>
-            <span class="cat cat-m">Meals</span>
-            <span class="cat cat-v">Visa</span>
-            <span class="cat cat-o">Others</span>
-          </div>
-        </div>
-        <div style="margin-top:18px">
-          <div class="ds-lbl" style="margin-bottom:10px">6-stage lifecycle tracker</div>
-          <div class="step-demo">
-            <div class="sd done">✓ Proposed</div>
-            <div class="sd done">✓ Submitted</div>
-            <div class="sd done">✓ Approved</div>
-            <div class="sd active">4 Actual</div>
-            <div class="sd">5 Submit</div>
-            <div class="sd">6 Final</div>
-          </div>
-        </div>
-      </div>
-      <div class="ds-block">
-        <div class="ds-lbl">Key components</div>
-        <div style="margin-bottom:16px">
-          <div style="font-size:11px;color:var(--ink3);margin-bottom:8px">Opening Balance / Actual Expenses / Balance strip</div>
-          <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:4px">
-            <div style="background:#E8F0E4;border-radius:2px;padding:10px;text-align:center"><div style="font-size:10px;color:var(--g);font-weight:500;margin-bottom:2px">Proposed</div><div style="font-size:14px;font-weight:500;color:var(--g)">₹ 32,000</div></div>
-            <div style="background:#EAF0E8;border-radius:2px;padding:10px;text-align:center"><div style="font-size:10px;color:var(--g);font-weight:500;margin-bottom:2px">Actual</div><div style="font-size:14px;font-weight:500;color:var(--g)">₹ 35,000</div></div>
-            <div style="background:#F8ECE8;border-radius:2px;padding:10px;text-align:center"><div style="font-size:10px;color:var(--w);font-weight:500;margin-bottom:2px">Balance</div><div style="font-size:14px;font-weight:500;color:var(--w)">₹ 3,000</div></div>
-          </div>
-        </div>
-        <div style="margin-bottom:16px">
-          <div style="font-size:11px;color:var(--ink3);margin-bottom:8px">Date-wise expense accordion with category rows</div>
-          <div style="border:1px solid var(--bm);border-radius:2px;overflow:hidden">
-            <div style="display:flex;justify-content:space-between;align-items:center;padding:10px 12px;background:var(--bg-alt);border-bottom:1px solid var(--bm)">
-              <div style="font-size:13px;font-weight:500;color:var(--ink)">18/02/2026</div>
-              <div style="font-size:12px;color:var(--ink2)">₹ 32,000 ∧</div>
-            </div>
-            <div style="padding:8px 12px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:8px">
-              <div style="font-size:11px;font-weight:500;color:var(--g);background:var(--gx);padding:3px 8px;border-radius:2px">Hotel</div>
-              <div style="font-size:12px;color:var(--ink2);flex:1">Description here</div>
-              <div style="font-size:12px;color:var(--ink);font-weight:500">₹ 8,000</div>
-              <div style="font-size:10px;color:var(--ink3);border:1px solid var(--bm);padding:2px 6px;border-radius:2px">Receipt</div>
-            </div>
-          </div>
-        </div>
-        <div>
-          <div style="font-size:11px;color:var(--ink3);margin-bottom:8px">Approver action bar (single-screen decision)</div>
-          <div style="background:#F4F0E8;border:1px solid rgba(26,32,24,.12);border-radius:2px;padding:10px 12px;display:flex;gap:8px;align-items:center">
-            <div style="font-size:11px;color:var(--ink3);flex:1">Phase review action</div>
-            <div style="font-size:11px;font-weight:500;color:#2D5A27;background:#E8F0E4;border:1px solid #C8DDC4;padding:5px 10px;border-radius:2px">Approve</div>
-            <div style="font-size:11px;font-weight:500;color:#7A4A1A;background:#FCEED8;border:1px solid #E9CFA8;padding:5px 10px;border-radius:2px">Reject</div>
-            <div style="font-size:11px;font-weight:500;color:var(--ink2);background:#EFECE5;border:1px solid var(--bm);padding:5px 10px;border-radius:2px">Cancel</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
 
 <!-- FINAL DESIGN -->
 <div class="bw">
@@ -1155,8 +1073,8 @@ footer{border-top:1px solid var(--border);padding:26px 48px;display:flex;justify
     </div>
 
     <div class="metrics-row">
-      <div class="metric"><div class="m-n">↓ 70%</div><div class="m-l">Reduction in manual effort per travel request — from 14 touchpoints to 4</div></div>
-      <div class="metric"><div class="m-n">↓ 90%</div><div class="m-l">Post-trip reconciliation time — from 3.4 hours average to under 20 minutes</div></div>
+      <div class="metric"><div class="m-n">↓ 35%</div><div class="m-l">Reduction in manual effort per travel request — fewer touchpoints end to end</div></div>
+      <div class="metric"><div class="m-n">↓ 40%</div><div class="m-l">Post-trip reconciliation time — from 3.4 hours average to under 2 hours</div></div>
       <div class="metric"><div class="m-n">3,000+</div><div class="m-l">Employees across 14 countries using the system on web and mobile</div></div>
     </div>
   </div>
@@ -1200,7 +1118,7 @@ window.addEventListener("scroll",()=>{
   p.style.width=Math.min(100,s/t*100)+"%";
   n.classList.toggle("sc",s>40);
 });
-const els=document.querySelectorAll(".sec,.jm-wrap,.ia-wrap,.tf-wrap,.ds-wrap,.retro,.screens-sec");
+const els=document.querySelectorAll(".sec,.jm-wrap,.ia-wrap,.tf-wrap,.retro,.screens-sec");
 const obs=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting){x.target.classList.add("v");obs.unobserve(x.target)}}),{threshold:.05});
 els.forEach(el=>obs.observe(el));
 </script>
