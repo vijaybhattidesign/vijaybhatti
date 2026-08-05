@@ -2709,3 +2709,15 @@
 .desktop-2-item {
   max-width: 1440px;
 }
+/* Responsive Figma artboard helpers */
+html, body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+.frame-parent {
+  max-width: 1440px;
+}
+.group-wrapper {
+  background-size: cover !important;
+  background-position: center center !important;
+}
