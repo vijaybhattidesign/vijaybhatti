@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Case Study — Vijay Bhatti</title>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#FFFFFF;--bg-alt:#EEEAE2;--bg-dark:#151C13;
+  --ink:#1A2018;--ink2:#3F463D;--ink3:#4F574E;
+  --g:#1E4A1C;--gl:#2D5A27;--gx:#E6F0E4;
+  --border:rgba(26,32,24,.10);--bm:rgba(26,32,24,.16);
+  --serif:'Segoe UI',system-ui,sans-serif;
+  --sans:'Segoe UI',system-ui,sans-serif;
+}
+html,body{height:100%;margin:0}
+body{
+  background:var(--bg);
+  color:var(--ink);
+  font-family:var(--sans);
+  -webkit-font-smoothing:antialiased;
+  display:flex;
+  flex-direction:column;
+  min-height:100dvh;
+}
+[data-theme="dark"]{
+  --bg:#0D1410;--bg-alt:#131A11;--bg-dark:#070C07;
+  --ink:#E8F2E4;--ink2:#AFCBAA;--ink3:#93AF8E;
+  --g:#78D070;--gl:#8AE082;--gx:rgba(88,170,80,.13);
+  --border:rgba(188,228,180,.08);--bm:rgba(188,228,180,.14);
+}
+.notion-bar{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  flex-wrap:wrap;
+  padding:8px clamp(12px,2.5vw,32px);
+  border-bottom:1px solid var(--border);
+  background:var(--bg);
+  font-size:13px;
+  color:var(--ink2);
+}
+.notion-bar a{color:var(--g);text-decoration:none;font-weight:500}
+.notion-bar a:hover{text-decoration:underline}
+.notion-shell{
+  position:relative;
+  flex:1;
+  width:100%;
+  min-height:0;
+  height:calc(100dvh - var(--nav-h, 60px) - 40px);
+  background:#ffffff;
+}
+.notion-shell iframe{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  border:0;
+  display:block;
+  background:#ffffff;
+}
+.notion-gate{
+  position:absolute;
+  inset:0;
+  z-index:2;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  flex-direction:column;
+  gap:18px;
+  padding:32px;
+  text-align:center;
+  background:#fff;
+  color:#1A2018;
+}
+.notion-gate[hidden]{display:none!important}
+.notion-gate h1{
+  font-family:var(--serif);
+  font-size:clamp(22px,3vw,32px);
+  font-weight:400;
+  color:#1A2018;
+}
+.notion-gate p{font-size:15px;line-height:1.65;max-width:440px;color:#3F463D}
+.notion-gate .actions{display:flex;flex-wrap:wrap;gap:10px;justify-content:center}
+.notion-gate button,
+.notion-gate .btn-open{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding:12px 22px;
+  border:0;
+  border-radius:2px;
+  font:inherit;
+  font-size:14px;
+  font-weight:500;
+  cursor:pointer;
+  text-decoration:none;
+}
+.notion-gate button{background:#1A2018;color:#fff}
+.notion-gate button:hover{background:#2D5A27}
+.notion-gate .btn-open{background:transparent;color:#1A2018;border:1px solid rgba(26,32,24,.2)}
+.notion-gate .btn-open:hover{border-color:#1A2018}
+</style>
+<link rel="stylesheet" href="site-a11y.css">
+<link rel="stylesheet" href="site-nav.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<nav id="nav">
+  <a href="index.html" class="nlogo">Vijay Bhatti.</a>
+  <div class="nav-bar-actions">
+    <a href="VijayBhatti_Resume.pdf" class="btn-resume nav-resume-out" download="VijayBhatti_Resume.pdf">Download Resume</a>
+    <button type="button" class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="nav-menu" aria-label="Open menu">
+      <span class="nav-toggle-icon" aria-hidden="true">
+        <span class="nav-toggle-bar"></span>
+        <span class="nav-toggle-bar"></span>
+        <span class="nav-toggle-bar"></span>
+      </span>
+    </button>
+  </div>
+  <div class="nr" id="nav-menu" role="navigation" aria-label="Main">
+    <a href="index.html#case-studies" class="nl active">Case Studies</a>
+    <a href="about.html" class="nl">About</a>
+    <a href="VijayBhatti_Resume.pdf" class="btn-resume nav-resume-in" download="VijayBhatti_Resume.pdf">Download Resume</a>
+    <div class="nav-menu-theme">
+      <span class="nav-theme-label" id="nav-theme-label">Theme</span>
+      <button class="theme-toggle" id="theme-toggle" aria-labelledby="nav-theme-label" aria-label="Toggle dark mode" onclick="toggleTheme()">
+        <div class="theme-toggle-track">
+          <span class="tt-sun">☀</span>
+          <span class="tt-moon">☾</span>
+        </div>
+        <div class="theme-toggle-thumb"></div>
+      </button>
+    </div>
+  </div>
+  <button type="button" class="nav-backdrop" id="nav-backdrop" aria-hidden="true" tabindex="-1"></button>
+</nav>
+
+<div class="notion-bar">
+  <span>Case study (Notion)</span>
+  <a href="https://vanilla-steam-503.notion.site/0b5e0785a508467482c862af41c8f256" target="_blank" rel="noopener">Open in new tab ↗</a>
+</div>
+
+<main class="notion-shell" id="main">
+  <div class="notion-gate" id="notion-gate">
+    <h1>Load case study</h1>
+    <p>Notion embeds often stay blank in IDE previews and when opened as a local file. Click below to load it here, or open it in a new tab.</p>
+    <div class="actions">
+      <button type="button" id="notion-load">View on this page</button>
+      <a class="btn-open" href="https://vanilla-steam-503.notion.site/0b5e0785a508467482c862af41c8f256" target="_blank" rel="noopener">Open in new tab ↗</a>
+    </div>
+  </div>
+  <iframe
+    id="notion-frame"
+    title="Case study"
+    allowfullscreen
+    referrerpolicy="strict-origin-when-cross-origin"
+  ></iframe>
+</main>
+
+<script src="site-nav.js" defer></script>
+<script>
+(function(){var t=sessionStorage.getItem('vbt')||'dark';if(t==='dark')document.documentElement.setAttribute('data-theme','dark');})();
+function toggleTheme(){var d=document.documentElement.getAttribute('data-theme')==='dark';if(d){document.documentElement.removeAttribute('data-theme');sessionStorage.setItem('vbt','light');}else{document.documentElement.setAttribute('data-theme','dark');sessionStorage.setItem('vbt','dark');}}
+
+(function(){
+  var EMBED='https://vanilla-steam-503.notion.site/ebd/0b5e0785a508467482c862af41c8f256';
+  var frame=document.getElementById('notion-frame');
+  var gate=document.getElementById('notion-gate');
+  var btn=document.getElementById('notion-load');
+  if(!frame||!gate||!btn)return;
+
+  function loadEmbed(){
+    frame.src=EMBED;
+    gate.hidden=true;
+  }
+
+  btn.addEventListener('click',loadEmbed);
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675" role="img" aria-label="Case study cover">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1A2018"/>
+      <stop offset="55%" stop-color="#243528"/>
+      <stop offset="100%" stop-color="#2D5A27"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="675" fill="url(#bg)"/>
+  <rect x="72" y="72" width="1056" height="531" rx="8" fill="none" stroke="rgba(232,242,228,.22)" stroke-width="2"/>
+  <text x="96" y="160" fill="#E8F2E4" font-family="Segoe UI, system-ui, sans-serif" font-size="28" font-weight="500" letter-spacing="4">CASE STUDY 04</text>
+  <text x="96" y="250" fill="#E8F2E4" font-family="Segoe UI, system-ui, sans-serif" font-size="56" font-weight="400">Notion case study</text>
+  <text x="96" y="310" fill="#AFCBAA" font-family="Segoe UI, system-ui, sans-serif" font-size="24">Full write-up · open on site</text>
+</svg>
